@@ -1,96 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Physics CBT Quiz</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics CBT Quiz</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div id="container">
-    <!-- LOGIN PAGE -->
-    <div id="login-screen">
-        <h2>SSS ONE Physics CBT Assignment</h2>
-        <p>Please enter your details to start the quiz.</p>
-        <input type="text" id="studentName" placeholder="Enter your name" required>
-        <input type="text" id="studentClass" placeholder="Enter your class" required>
-        <button onclick="startQuiz()">Start Quiz</button>
-    </div>
-
-    <!-- QUIZ PAGE -->
-    <div id="quiz-screen" class="hidden">
-        <div id="timer"></div>
-        <div id="progress"></div>
-        <div id="question-container"></div>
-        <div>
-            <button id="prevBtn" onclick="prevQuestion()">Previous</button>
-            <button id="nextBtn" onclick="nextQuestion()">Next</button>
+    <div id="container">
+        <!-- LOGIN PAGE -->
+        <div id="login-screen">
+            <h2>SSS ONE Physics CBT Assignment</h2>
+            <p>Please enter your details to start the quiz.</p>
+            <input type="text" id="studentName" placeholder="Enter your name" required>
+            <input type="text" id="studentClass" placeholder="Enter your class" required>
+            <button onclick="startQuiz()">Start Assignment</button>
         </div>
-        <br>
-        <button onclick="submitQuiz()">Submit Quiz</button>
+
+        <!-- QUIZ PAGE -->
+        <div id="quiz-screen" class="hidden">
+            <div id="timer"></div>
+            <div id="progress"></div>
+            <div id="question-container"></div>
+            <div>
+                <button id="prevBtn" onclick="prevQuestion()">Previous</button>
+                <button id="nextBtn" onclick="nextQuestion()">Next</button>
+            </div>
+            <br>
+            <button onclick="submitQuiz()">Submit Assignment</button>
+        </div>
+
+
+        <!-- RESULT PAGE -->
+        <div id="result-screen" class="hidden">
+            <h2>Quiz Completed</h2>
+            <p id="score-display"></p>
+            <button onclick="downloadPDF()">Download Score (PDF)</button>
+        </div>
+    </div>
+    <div class="footer">
+        <p>Powered By Horlanif Tech &copy; 2025</p>
     </div>
 
-    <!-- RESULT PAGE -->
-    <div id="result-screen" class="hidden">
-        <h2>Quiz Completed</h2>
-        <p id="score-display"></p>
-        <button onclick="downloadPDF()">Download Score (PDF)</button>
-    </div>
-</div>
+    <!-- JS SECTION -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        const questions = [
+            { q: "The frictional force that prevents a stationary object from moving is called?", options: ["Static friction", "Dynamic friction", "Rolling friction", "Kinetic friction"], answer: 0 },
+            { q: "Which of these quantities is a derived quantity?", options: ["Length", "Mass", "Velocity", "Time"], answer: 2 },
+            { q: "In a velocity–time graph, the slope represents?", options: ["Displacement", "Acceleration", "Speed", "Momentum"], answer: 1 },
+            { q: "What is the SI unit of force?", options: ["Joule", "Newton", "Pascal", "Watt"], answer: 1 },
+            { q: "Dimensional formula of acceleration is?", options: ["LT⁻²", "LT²", "L⁻¹T²", "L²T⁻¹"], answer: 0 },
+            { q: "Friction depends on?", options: ["Area of contact", "Nature of surfaces", "Velocity", "Mass only"], answer: 1 },
+            { q: "When an object moves with constant velocity, its acceleration is?", options: ["Zero", "Increasing", "Decreasing", "Constant"], answer: 0 },
+            { q: "Derived unit of power is?", options: ["Joule", "Watt", "Pascal", "Newton"], answer: 1 },
+            { q: "The area under a velocity–time graph represents?", options: ["Acceleration", "Distance", "Speed", "Momentum"], answer: 1 },
+            { q: "Dimensional formula of force is?", options: ["MLT⁻²", "ML⁻¹T⁻²", "M⁻¹L²T²", "ML²T⁻³"], answer: 0 },
+            { q: "The force that opposes motion between two surfaces in contact is called?", options: ["Gravity", "Tension", "Friction", "Viscosity"], answer: 2 },
+            { q: "Which of the following is a fundamental quantity?", options: ["Force", "Length", "Pressure", "Energy"], answer: 1 },
+            { q: "The gradient of a distance–time graph gives?", options: ["Speed", "Acceleration", "Force", "Displacement"], answer: 0 },
+            { q: "The dimension of momentum is?", options: ["MLT⁻¹", "ML²T⁻²", "M²LT⁻³", "MT⁻¹"], answer: 0 },
+            { q: "The coefficient of friction depends on?", options: ["Nature of materials", "Mass of body", "Velocity", "Surface area"], answer: 0 },
+            { q: "If a car accelerates uniformly from rest, the graph of velocity vs. time is?", options: ["A straight line", "A curve", "A horizontal line", "A parabola"], answer: 0 },
+            { q: "Dimensional analysis contains _____ physical quantites?", options: ["two", "one", "none of the options", "three"], answer: 3 },
+            { q: "When no external force acts on a body, its momentum?", options: ["Remains constant", "Increases", "Decreases", "Becomes zero"], answer: 0 },
+            { q: "The SI unit of pressure is?", options: ["Joule", "Newton", "Pascal", "Watt"], answer: 2 },
+            { q: "Velocity is a ___ quantity.", options: ["Scalar", "Vector", "Derived", "Dimensional"], answer: 1 }
+        ];
 
-<!-- JS SECTION -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script>
-const questions = [
-    {q: "The frictional force that prevents a stationary object from moving is called?", options: ["Static friction", "Dynamic friction", "Rolling friction", "Kinetic friction"], answer: 0},
-    {q: "Which of these quantities is a derived quantity?", options: ["Length", "Mass", "Velocity", "Time"], answer: 2},
-    {q: "In a velocity–time graph, the slope represents?", options: ["Displacement", "Acceleration", "Speed", "Momentum"], answer: 1},
-    {q: "What is the SI unit of force?", options: ["Joule", "Newton", "Pascal", "Watt"], answer: 1},
-    {q: "Dimensional formula of acceleration is?", options: ["LT⁻²", "LT²", "L⁻¹T²", "L²T⁻¹"], answer: 0},
-    {q: "Friction depends on?", options: ["Area of contact", "Nature of surfaces", "Velocity", "Mass only"], answer: 1},
-    {q: "When an object moves with constant velocity, its acceleration is?", options: ["Zero", "Increasing", "Decreasing", "Constant"], answer: 0},
-    {q: "Derived unit of power is?", options: ["Joule", "Watt", "Pascal", "Newton"], answer: 1},
-    {q: "The area under a velocity–time graph represents?", options: ["Acceleration", "Distance", "Speed", "Momentum"], answer: 1},
-    {q: "Dimensional formula of force is?", options: ["MLT⁻²", "ML⁻¹T⁻²", "M⁻¹L²T²", "ML²T⁻³"], answer: 0},
-    {q: "The force that opposes motion between two surfaces in contact is called?", options: ["Gravity", "Tension", "Friction", "Viscosity"], answer: 2},
-    {q: "Which of the following is a fundamental quantity?", options: ["Force", "Length", "Pressure", "Energy"], answer: 1},
-    {q: "The gradient of a distance–time graph gives?", options: ["Speed", "Acceleration", "Force", "Displacement"], answer: 0},
-    {q: "The dimension of momentum is?", options: ["MLT⁻¹", "ML²T⁻²", "M²LT⁻³", "MT⁻¹"], answer: 0},
-    {q: "The coefficient of friction depends on?", options: ["Nature of materials", "Mass of body", "Velocity", "Surface area"], answer: 0},
-    {q: "If a car accelerates uniformly from rest, the graph of velocity vs. time is?", options: ["A straight line", "A curve", "A horizontal line", "A parabola"], answer: 0},
-    {q: "Dimensional analysis contains _____ physical quantites?", options: ["two", "one", "none of the options", "three"], answer: 3},
-    {q: "When no external force acts on a body, its momentum?", options: ["Remains constant", "Increases", "Decreases", "Becomes zero"], answer: 0},
-    {q: "The SI unit of pressure is?", options: ["Joule", "Newton", "Pascal", "Watt"], answer: 2},
-    {q: "Velocity is a ___ quantity.", options: ["Scalar", "Vector", "Derived", "Dimensional"], answer: 1}
-];
+        let shuffledQuestions = [];
+        let currentQuestion = 0;
+        let score = 0;
+        let answers = [];
+        let timeLeft = 60 * 60; // 60 minutes
+        let timerInterval;
 
-let shuffledQuestions = [];
-let currentQuestion = 0;
-let score = 0;
-let answers = [];
-let timeLeft = 60 * 60; // 60 minutes
-let timerInterval;
+        function startQuiz() {
+            const name = document.getElementById("studentName").value.trim();
+            const studentClass = document.getElementById("studentClass").value.trim();
+            if (!name || !studentClass) {
+                alert("Please fill in all details");
+                return;
+            }
+            shuffledQuestions = questions.map(q => ({ ...q })).sort(() => Math.random() - 0.5);
+            document.getElementById("login-screen").classList.add("hidden");
+            document.getElementById("quiz-screen").classList.remove("hidden");
+            showQuestion();
+            startTimer();
+        }
 
-function startQuiz() {
-    const name = document.getElementById("studentName").value.trim();
-    const studentClass = document.getElementById("studentClass").value.trim();
-    if (!name || !studentClass) {
-        alert("Please fill in all details");
-        return;
-    }
-    shuffledQuestions = questions.map(q => ({...q})).sort(() => Math.random() - 0.5);
-    document.getElementById("login-screen").classList.add("hidden");
-    document.getElementById("quiz-screen").classList.remove("hidden");
-    showQuestion();
-    startTimer();
-}
-
-function showQuestion() {
-    const q = shuffledQuestions[currentQuestion];
-    const container = document.getElementById("question-container");
-    document.getElementById("progress").innerHTML = `Question ${currentQuestion + 1} of ${shuffledQuestions.length}`;
-    container.innerHTML = `
+        function showQuestion() {
+            const q = shuffledQuestions[currentQuestion];
+            const container = document.getElementById("question-container");
+            document.getElementById("progress").innerHTML = `Question ${currentQuestion + 1} of ${shuffledQuestions.length}`;
+            container.innerHTML = `
         <div class='question'><b>${q.q}</b></div>
         <div class='options'>
             ${q.options.map((opt, i) => `
@@ -100,65 +106,66 @@ function showQuestion() {
             `).join('')}
         </div>
     `;
-    document.getElementById("prevBtn").disabled = currentQuestion === 0;
-    document.getElementById("nextBtn").disabled = currentQuestion === shuffledQuestions.length - 1;
-}
-
-function nextQuestion() {
-    saveAnswer();
-    if (currentQuestion < shuffledQuestions.length - 1) {
-        currentQuestion++;
-        showQuestion();
-    }
-}
-
-function prevQuestion() {
-    saveAnswer();
-    if (currentQuestion > 0) {
-        currentQuestion--;
-        showQuestion();
-    }
-}
-
-function saveAnswer() {
-    const selected = document.querySelector('input[name="option"]:checked');
-    if (selected) answers[currentQuestion] = parseInt(selected.value);
-}
-
-function submitQuiz() {
-    saveAnswer();
-    score = answers.reduce((acc, ans, i) => acc + (ans === shuffledQuestions[i].answer ? 1 : 0), 0);
-    document.getElementById("quiz-screen").classList.add("hidden");
-    document.getElementById("result-screen").classList.remove("hidden");
-    document.getElementById("score-display").innerHTML = `You scored ${score} out of ${shuffledQuestions.length}`;
-    clearInterval(timerInterval);
-}
-
-function startTimer() {
-    timerInterval = setInterval(() => {
-        timeLeft--;
-        const mins = Math.floor(timeLeft / 60);
-        const secs = timeLeft % 60;
-        document.getElementById("timer").innerHTML = `⏱️ Time Left: ${mins}:${secs < 10 ? "0" + secs : secs}`;
-        if (timeLeft <= 0) {
-            clearInterval(timerInterval);
-            submitQuiz();
+            document.getElementById("prevBtn").disabled = currentQuestion === 0;
+            document.getElementById("nextBtn").disabled = currentQuestion === shuffledQuestions.length - 1;
         }
-    }, 1000);
-}
 
-function downloadPDF() {
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
-    const name = document.getElementById("studentName").value;
-    const studentClass = document.getElementById("studentClass").value;
-    doc.text(`Physics CBT Quiz Result`, 20, 20);
-    doc.text(`Name: ${name}`, 20, 30);
-    doc.text(`Class/ID: ${studentClass}`, 20, 40);
-    doc.text(`Score: ${score} / ${shuffledQuestions.length}`, 20, 50);
-    doc.text(`Date: ${new Date().toLocaleDateString()}`, 20, 60);
-    doc.save(`${name.replace(/\s+/g, '_')}_Physics_Quiz_Result.pdf`);
-}
-</script>
+        function nextQuestion() {
+            saveAnswer();
+            if (currentQuestion < shuffledQuestions.length - 1) {
+                currentQuestion++;
+                showQuestion();
+            }
+        }
+
+        function prevQuestion() {
+            saveAnswer();
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion();
+            }
+        }
+
+        function saveAnswer() {
+            const selected = document.querySelector('input[name="option"]:checked');
+            if (selected) answers[currentQuestion] = parseInt(selected.value);
+        }
+
+        function submitQuiz() {
+            saveAnswer();
+            score = answers.reduce((acc, ans, i) => acc + (ans === shuffledQuestions[i].answer ? 1 : 0), 0);
+            document.getElementById("quiz-screen").classList.add("hidden");
+            document.getElementById("result-screen").classList.remove("hidden");
+            document.getElementById("score-display").innerHTML = `You scored ${score} out of ${shuffledQuestions.length}`;
+            clearInterval(timerInterval);
+        }
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                const mins = Math.floor(timeLeft / 60);
+                const secs = timeLeft % 60;
+                document.getElementById("timer").innerHTML = `⏱️ Time Left: ${mins}:${secs < 10 ? "0" + secs : secs}`;
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    submitQuiz();
+                }
+            }, 1000);
+        }
+
+        function downloadPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            const name = document.getElementById("studentName").value;
+            const studentClass = document.getElementById("studentClass").value;
+            doc.text(`Physics CBT Quiz Result`, 20, 20);
+            doc.text(`Name: ${name}`, 20, 30);
+            doc.text(`Class/ID: ${studentClass}`, 20, 40);
+            doc.text(`Score: ${score} / ${shuffledQuestions.length}`, 20, 50);
+            doc.text(`Date: ${new Date().toLocaleDateString()}`, 20, 60);
+            doc.save(`${name.replace(/\s+/g, '_')}_Physics_Quiz_Result.pdf`);
+        }
+    </script>
 </body>
+
 </html>
