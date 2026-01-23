@@ -36,7 +36,6 @@
     <!-- LOGIN -->
     <div id="login" class="hidden">
       <h1>FIRST C.A TEST</h1>
-
       <label>Full name</label>
       <input type="text" id="name" required placeholder="Enter your full Name"><br>
       <label>Registration Number</label>
@@ -1112,6 +1111,8 @@
       const surname = document.getElementById('surname').value.trim();
       const studentClass = document.getElementById('grade').value.trim();
       const subject = document.getElementById('subject').value;
+      const name = document.getElementById('name').value.trim();
+
 
 
       // Prevent refresh or tab close during exam
@@ -1141,7 +1142,7 @@
         return;
       }
 
-      document.getElementById('candidate').innerText = `${student.surname.toUpperCase()} - ${studentClass} - ${subject}`;
+      document.getElementById('candidate').innerText = `${name.toUpperCase()} - ${studentClass} - ${subject}`;
 
       if (subject === "PHYSICS") {
         questions = physicsQuestions;
