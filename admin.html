@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>CBT Admin Panel</title>
+  <style>
+    body {
+      font-family: Helvetica, sans-serif;
+      background: #f4f6fb;
+      padding: 30px;
+      user-select: none;
+      align-items: center;
+      margin-left: 300px;
+    }
+
+    .box {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+      max-width: 400px;
+    }
+
+    input,
+    button {
+      padding: 8px;
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    button {
+      background: #003366;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .danger {
+      background: darkred;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>CBT Admin – Reset Student Attempts</h2>
+
+  <!-- Reset ONE student -->
+  <div class="box">
+    <h3>Reset Single Student</h3>
+    <input type="text" id="singleReg" placeholder="Enter Reg Number">
+    <button onclick="resetSingle()">Reset This Student</button>
+  </div>
+
+  <!-- Reset ALL students -->
+  <div class="box">
+    <h3>Reset All Students</h3>
+    <button class="danger" onclick="resetAll()">RESET ALL ATTEMPTS</button>
+  </div>
+
+  <script>
+    function resetSingle() {
+      const reg = document.getElementById("singleReg").value.trim();
+
+      if (!reg) {
+        alert("Enter a registration number");
+        return;
+      }
+
+      const pass = prompt("Enter admin password");
+      if (pass !== "admin123") return;
+
+      const key = "CBT_" + reg;
+
+      if (localStorage.getItem(key)) {
+        localStorage.removeItem(key);
+        alert("Attempt reset for " + reg);
+      } else {
+        alert("No attempt found for this reg number");
+      }
+    }
+
+    function resetAll() {
+     const pass = prompt("Enter admin password");
+
+  if (pass !== "admin123") {
+    alert("Wrong password!");
+    return;
+  }
+
+  if (!confirm("This will reset ALL students. Continue?")) return;
+
+  let count = 0;
+
+  for (let i = localStorage.length - 1; i >= 0; i--) {
+    const key = localStorage.key(i);
+    if (key.startsWith("CBT_")) {
+      localStorage.removeItem(key);
+      count++;
+    }
+  }
+
+  alert(count + " student attempts reset successfully");
+}
+  </script>
+
+</body>
+
+</html>
