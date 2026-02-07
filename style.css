@@ -4,7 +4,10 @@
 
  body {
      font-family: 'Times New Roman';
-     background: #f4f6f8;
+     background: url(images/sch2.jpg);
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
      margin: 0;
      padding: 0;
      box-sizing: border-box;
@@ -13,7 +16,10 @@
 
  .container {
      max-width: 900px;
-     margin: auto;
+     margin-top: 500px;
+     margin-bottom: 500px;
+     margin-left: 200px;
+     margin-right: 200px;
      background: plum;
      padding: 20px;
      border-radius: 8px;
@@ -207,13 +213,15 @@
  table {
      width: 100%;
      border-collapse: collapse;
+     table-layout: fixed;
  }
 
  th,
  td {
      border: 2px solid #ccc;
-     padding: 8px;
+     padding: 4px;
      text-align: center;
+     word-wrap: break-word;
  }
 
 
