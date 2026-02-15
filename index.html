@@ -40,7 +40,7 @@
     <div id="login" class="hidden">
       <h1>FIRST C.A TEST</h1>
       <label style="--i:1">Full name</label>
-      <input type="text" id="name" required placeholder="Enter your full Name" style="--i:1"><br>
+      <input type="text" id="name" placeholder="Enter your full Name" style="--i:1" required><br>
       <label style="--i:2">Registration Number</label>
       <input type="text" id="regNo" required placeholder="Enter your Reg Number" style="--i:2"> <br>
 
@@ -1308,6 +1308,10 @@
       }
       if (!studentClass || !subject) {
         alert("Please fill Class and Subject");
+        return;
+      }
+       if (!name) {
+        alert("Please fill fullname");
         return;
       }
 
