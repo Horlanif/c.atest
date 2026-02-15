@@ -18,14 +18,17 @@
     <div id="instructions">
       <h1>Instructions</h1>
       <ol>
-        <li>This examination consists of 50 questions to be completed within 50 minutes.</li><br>
-        <li>Candidates must log in using their correct Registration Number and Surname.
+        <li style="--i:1">This examination consists of 50 questions to be completed within 50 minutes.</li><br>
+        <li style="--i:2">Candidates must log in using their correct Registration Number and Surname.
           Only one attempt is permitted.</li><br>
-        <li> Refreshing the page, closing the browser, or minimizing the exam interface is strictly prohibited during
+        <li style="--i:3"> Refreshing the page, closing the browser, or minimizing the exam interface is strictly
+          prohibited during
           the
           examination.</li><br>
-        <li>Candidates are advised to read all questions carefully and navigate using the provided controls.</li><br>
-        <li>Upon submission, candidates are required to download their result in PDF format and forward it via WhatsApp
+        <li style="--i:4">Candidates are advised to read all questions carefully and navigate using the provided
+          controls.</li><br>
+        <li style="--i:5">Upon submission, candidates are required to download their result in PDF format and forward it
+          via WhatsApp
           to
           the examiner.</li>
         <button onclick="proceed()">PROCEED</button>
@@ -36,19 +39,19 @@
     <!-- LOGIN -->
     <div id="login" class="hidden">
       <h1>FIRST C.A TEST</h1>
-      <label>Full name</label>
-      <input type="text" id="name" required placeholder="Enter your full Name"><br>
-      <label>Registration Number</label>
-      <input type="text" id="regNo" required placeholder="Enter your Reg Number"> <br>
+      <label style="--i:1">Full name</label>
+      <input type="text" id="name" required placeholder="Enter your full Name" style="--i:1"><br>
+      <label style="--i:2">Registration Number</label>
+      <input type="text" id="regNo" required placeholder="Enter your Reg Number" style="--i:2"> <br>
 
-      <label>Password</label>
-      <input type="text" id="surname" required placeholder="Enter your Surname"> <br>
+      <label style="--i:3">Password</label>
+      <input type="text" id="surname" required placeholder="Enter your Surname" style="--i:3"> <br>
 
-      <label>Student's Class</label>
-      <input type="text" id="grade" required placeholder="Enter your Class">
+      <label style="--i:4">Student's Class</label>
+      <input type="text" id="grade" required placeholder="Enter your Class" style="--i:4">
 
-      <label>Select Subject</label>
-      <select id="subject" required>
+      <label style="--i:5">Select Subject</label>
+      <select id="subject" required style="--i:5">
         <option value="">-- Select Subject --</option>
         <option value="PHYSICS">Physics</option>
         <option value="MATHEMATICS">Mathematics</option>
@@ -70,7 +73,7 @@
         <button onclick="prevQ()">Previous</button>
         <button onclick="nextQ()">Next</button>
         <button onclick="submitExam()">Submit</button>
-        
+
         <button id="openCalc" class="cal-btn">Calculator</button>
         <div id="calcBox">
           <div id="calcHeader">
@@ -464,7 +467,50 @@
 
     const mathsQuestions = [
 
+      {
+        q: 'To construct a 90° angle without a protractor, you can use:',
+        options: ['Compass and ruler', 'Ruler only', 'Divider only', 'None of the above'],
+        answer: 0
+      },
+      {
+        q: 'To construct a 30° angle using a compass, you first construct:',
+        options: ['60° angle', '90° angle', '45° angle', '120° angle'],
+        answer: 0
+      },
 
+      {
+        q: 'An angle bisector divides an angle into:',
+        options: ['Two equal angles', 'Two complementary angles', 'Two obtuse angles', 'Two reflex angles'],
+        answer: 0
+      },
+
+      {
+        q: 'The center of an inscribed circle is intersection of:',
+        options: ['Altitudes', 'Medians', 'Angle bisectors', 'Perpendicular bisectors'],
+        answer: 2
+      },
+      {
+        q: 'Which instrument is NOT normally required for geometric construction?',
+        options: ['Compass', 'Ruler', 'Calculator', 'Divider'],
+        answer: 2
+      },
+
+      {
+        q: 'Which tool is used to draw arcs in construction?',
+        options: ['Ruler', 'Compass', 'Protractor', 'Divider'],
+        answer: 1
+      },
+
+      {
+        q: 'The center of a circumcircle is the intersection of:',
+        options: ['Altitudes', 'Medians', 'Perpendicular bisectors', 'Angle bisectors'],
+        answer: 2
+      },
+      {
+        q: 'Which construction divides an angle into two equal parts?',
+        options: ['Perpendicular construction', 'Angle bisector', 'Parallel construction', 'Midpoint construction'],
+        answer: 1
+      },
       {
         q: "Simplify: 2/(x+y) − 1/(x−y)",
         options: [
@@ -574,6 +620,29 @@
           "Given £ = {1,2,3,…,10}, M = {x : x is even}, P = {z : z is prime}, find M′ ∩ P",
         options: ["{5}", "{2,8}", "{4,6,8,10}", "{}", "{3,5,7}"],
         answer: "E"
+      },
+
+       {
+        q: 'To construct a 90° angle without a protractor, you can use:',
+        options: ['Compass and ruler', 'Ruler only', 'Divider only', 'None of the above'],
+        answer: 0
+      },
+      {
+        q: 'To construct a 30° angle using a compass, you first construct:',
+        options: ['60° angle', '90° angle', '45° angle', '120° angle'],
+        answer: 0
+      },
+
+      {
+        q: 'An angle bisector divides an angle into:',
+        options: ['Two equal angles', 'Two complementary angles', 'Two obtuse angles', 'Two reflex angles'],
+        answer: 0
+      },
+
+      {
+        q: 'The center of an inscribed circle is intersection of:',
+        options: ['Altitudes', 'Medians', 'Angle bisectors', 'Perpendicular bisectors'],
+        answer: 2
       },
       {
         q: "If 3y + 4 − y/3 = y + 9, find y",
@@ -700,7 +769,7 @@
       },
       {
         q: 'Simplify 0.87345 + 0.004 to two significant figures',
-        options: ['218.36', '21.84', '220', '218.35', '218'],
+        options: ['0.87745', '0.88', '87', '88', '8.8'],
         answer: 1
       },
       {
@@ -721,6 +790,29 @@
       {
         q: 'Simplify 3/4 ÷ 2 1/4 × (2 1/2 − 1 3/2)',
         options: ['7/18', '5/18', '7/15', '1/18', '5/12'],
+        answer: 1
+      },
+
+       {
+        q: 'Which instrument is NOT normally required for geometric construction?',
+        options: ['Compass', 'Ruler', 'Calculator', 'Divider'],
+        answer: 2
+      },
+
+      {
+        q: 'Which tool is used to draw arcs in construction?',
+        options: ['Ruler', 'Compass', 'Protractor', 'Divider'],
+        answer: 1
+      },
+
+      {
+        q: 'The center of a circumcircle is the intersection of:',
+        options: ['Altitudes', 'Medians', 'Perpendicular bisectors', 'Angle bisectors'],
+        answer: 2
+      },
+      {
+        q: 'Which construction divides an angle into two equal parts?',
+        options: ['Perpendicular construction', 'Angle bisector', 'Parallel construction', 'Midpoint construction'],
         answer: 1
       },
       {
@@ -1056,6 +1148,73 @@
       {
         q: 'A regular polygon has interior angle 120°. How many sides does it have ?',
         options: ['3', '6', '8', '12'],
+        answer: 1
+      },
+
+       {
+        q: 'Which instrument is NOT normally required for geometric construction?',
+        options: ['Compass', 'Ruler', 'Calculator', 'Divider'],
+        answer: 2
+      },
+
+      {
+        q: 'Which tool is used to draw arcs in construction?',
+        options: ['Ruler', 'Compass', 'Protractor', 'Divider'],
+        answer: 1
+      },
+
+      {
+        q: 'The center of a circumcircle is the intersection of:',
+        options: ['Altitudes', 'Medians', 'Perpendicular bisectors', 'Angle bisectors'],
+        answer: 2
+      },
+      {
+        q: 'Which construction divides an angle into two equal parts?',
+        options: ['Perpendicular construction', 'Angle bisector', 'Parallel construction', 'Midpoint construction'],
+        answer: 1
+      },
+       {
+        q: 'To construct a 90° angle without a protractor, you can use:',
+        options: ['Compass and ruler', 'Ruler only', 'Divider only', 'None of the above'],
+        answer: 0
+      },
+      {
+        q: 'To construct a 30° angle using a compass, you first construct:',
+        options: ['60° angle', '90° angle', '45° angle', '120° angle'],
+        answer: 0
+      },
+
+      {
+        q: 'An angle bisector divides an angle into:',
+        options: ['Two equal angles', 'Two complementary angles', 'Two obtuse angles', 'Two reflex angles'],
+        answer: 0
+      },
+
+      {
+        q: 'The center of an inscribed circle is intersection of:',
+        options: ['Altitudes', 'Medians', 'Angle bisectors', 'Perpendicular bisectors'],
+        answer: 2
+      },
+      {
+        q: 'Which instrument is NOT normally required for geometric construction?',
+        options: ['Compass', 'Ruler', 'Calculator', 'Divider'],
+        answer: 2
+      },
+
+      {
+        q: 'Which tool is used to draw arcs in construction?',
+        options: ['Ruler', 'Compass', 'Protractor', 'Divider'],
+        answer: 1
+      },
+
+      {
+        q: 'The center of a circumcircle is the intersection of:',
+        options: ['Altitudes', 'Medians', 'Perpendicular bisectors', 'Angle bisectors'],
+        answer: 2
+      },
+      {
+        q: 'Which construction divides an angle into two equal parts?',
+        options: ['Perpendicular construction', 'Angle bisector', 'Parallel construction', 'Midpoint construction'],
         answer: 1
       },
     ];

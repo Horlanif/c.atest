@@ -24,6 +24,10 @@
      background: plum;
      padding: 20px;
      border-radius: 8px;
+     opacity: 0;
+     animation: dropDown 1s ease forwards;
+     box-shadow: 2px 2px 4px 4px rgba(0, 0, 0, .4);
+
 
  }
 
@@ -35,6 +39,13 @@
      padding-bottom: 30px;
      width: 100%;
  }
+ #instructions li{
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: calc(0.2s*var(--i));
+ }
+
+ 
 
  #instructions h1 {
      text-transform: uppercase;
@@ -102,6 +113,13 @@
      border: none;
      outline: 2px solid purple;
      font-size: 28px;
+ }
+
+
+ #login label, #login input,#login select{
+    opacity: 0;
+    animation: slideRight 1.5s ease forwards;
+    animation-delay: calc(.3s*var(--i));
  }
 
 
@@ -206,11 +224,56 @@
      animation: blink 1s infinite;
  }
 
+
+ .question,.qimg,.options{
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+ }
+
  @keyframes blink {
      50% {
          opacity: 0.4;
      }
  }
+
+ @keyframes dropDown{
+    0%{
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+     100%{
+        transform: translateY(0px);
+        opacity: 1;
+ }
+}
+
+
+@keyframes slideRight{
+    0%{
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+
+     100%{
+        transform: translateY(0px);
+        opacity: 1;
+ }
+}
+
+
+@keyframes slideLeft{
+    0%{
+        transform: translateX(100px);
+        opacity: 0;
+    }
+
+     100%{
+        transform: translateY(0px);
+        opacity: 1;
+ }
+}
+
 
 
  table {
@@ -242,7 +305,7 @@
  #openCalc {
      position: fixed;
      top: 20px;
-     right: 20px;
+     left: 20px;
      padding: 12px 18px;
      font-size: 16px;
      background: navy !important;
@@ -395,7 +458,7 @@
          font-size: 14px !important;
          max-height: 40px;
          position: absolute;
-         width: 35%;
+         width: 30%;
 
      }
 
