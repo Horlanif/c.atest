@@ -18,19 +18,23 @@
     <div id="instructions">
       <h1>Instructions</h1>
       <ol>
-        <li style="--i:1">This examination consists of 50 questions to be completed within 50 minutes.</li><br>
-        <li style="--i:2">Candidates must log in using their correct Registration Number and Surname.
+        <li style="--i:1">This Test consists of 50 questions to be completed within 50 minutes.</li><br>
+        <li style="--i:2">Log using your correct Registration Number(e.g AMOS/MTH/2026/8888), Surname (e.g "ONISABI" or
+          "ayodele") and Class(e.g "SS2").
           Only one attempt is permitted.</li><br>
         <li style="--i:3"> Refreshing the page, closing the browser, or minimizing the exam interface is strictly
           prohibited during
           the
           examination.</li><br>
-        <li style="--i:4">Candidates are advised to read all questions carefully and navigate using the provided
+        <li style="--i:4">You are advised to read all questions carefully and navigate using the provided
           controls.</li><br>
-        <li style="--i:5">Upon submission, candidates are required to download their result in PDF format and forward it
+        <li style="--i:5">The Test will hold bewteen 5:00 PM-6:00 PM for SS2 Students and 10:00 PM-11:00 PM for SS1 Students. </li><br>
+        <li style="--i:6">Upon submission, You are required to download your result in PDF format and forward it
           via WhatsApp
           to
-          the examiner.</li>
+          the examiner.</li> <br>
+
+        <li style="--i:7" class="late">Late submission attracts a deduction of 5marks. </li>
         <button onclick="proceed()">PROCEED</button>
       </ol>
       <a href="admin.html" target="_blank">Admin</a>
@@ -622,7 +626,7 @@
         answer: "E"
       },
 
-       {
+      {
         q: 'To construct a 90° angle without a protractor, you can use:',
         options: ['Compass and ruler', 'Ruler only', 'Divider only', 'None of the above'],
         answer: 0
@@ -793,7 +797,7 @@
         answer: 1
       },
 
-       {
+      {
         q: 'Which instrument is NOT normally required for geometric construction?',
         options: ['Compass', 'Ruler', 'Calculator', 'Divider'],
         answer: 2
@@ -1151,7 +1155,7 @@
         answer: 1
       },
 
-       {
+      {
         q: 'Which instrument is NOT normally required for geometric construction?',
         options: ['Compass', 'Ruler', 'Calculator', 'Divider'],
         answer: 2
@@ -1173,7 +1177,7 @@
         options: ['Perpendicular construction', 'Angle bisector', 'Parallel construction', 'Midpoint construction'],
         answer: 1
       },
-       {
+      {
         q: 'To construct a 90° angle without a protractor, you can use:',
         options: ['Compass and ruler', 'Ruler only', 'Divider only', 'None of the above'],
         answer: 0
@@ -1310,7 +1314,7 @@
         alert("Please fill Class and Subject");
         return;
       }
-       if (!name) {
+      if (!name) {
         alert("Please fill fullname");
         return;
       }
