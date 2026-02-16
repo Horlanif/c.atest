@@ -28,7 +28,8 @@
           examination.</li><br>
         <li style="--i:4">You are advised to read all questions carefully and navigate using the provided
           controls.</li><br>
-        <li style="--i:5">The Test will hold bewteen 5:00 PM-6:00 PM for SS2 Students and 10:00 PM-11:00 PM for SS1 Students. </li><br>
+        <li style="--i:5">The Test will hold bewteen 5:00 PM-6:00 PM for SS2 Students and 10:00 PM-11:00 PM for SS1
+          Students. </li><br>
         <li style="--i:6">Upon submission, You are required to download your result in PDF format and forward it
           via WhatsApp
           to
@@ -102,6 +103,8 @@
           <th>Subject</th>
           <th>Score</th>
           <th>Total</th>
+          <th>Remarks</th>
+
 
         </tr>
         <tr>
@@ -111,6 +114,7 @@
           <td id="rSubject"></td>
           <td id="rScore"></td>
           <td id="rTotal"></td>
+          <td id="rRemark"></td>
 
         </tr>
       </table>
@@ -1232,6 +1236,7 @@
     let warned = false;
     let timerInterval;
     let regNo = "";
+    let remarks = "";
 
     // Example student credentials
     const students = [
@@ -1298,6 +1303,7 @@
         alert("You have already taken this exam.");
         return;
       }
+
 
       // Check login
       const student = students.find(
@@ -1400,6 +1406,18 @@
       clearInterval(timer);
       score = 0;
       questions.forEach((q, i) => { if (answers[i] === q.answer) score++; });
+      let percent = (score / questions.length) * 100;
+
+      let remark = "";
+
+      if (percent < 25) {
+        remark = "FAILED";
+      } else if (percent >= 25) {
+        remark = "AVERAGE";
+      } else if (percent >= 30) {
+        remark = "PASSED";
+      }
+
       document.getElementById('exam').classList.add('hidden');
       document.getElementById('result').classList.remove('hidden');
 
@@ -1417,7 +1435,20 @@
       document.getElementById('rSubject').innerText = studentSubject || 'N/A';
       document.getElementById('rScore').innerText = score;
       document.getElementById('rTotal').innerText = questions.length;
+      const remarkCell = document.getElementById("rRemark");
+      remarkCell.textContent = remark;
 
+      if (remark === "FAILED") {
+        remarkCell.style.color = "red";
+      }
+      else if (remark === "AVERAGE") {
+        remarkCell.style.color = "blue";
+      }
+      else if (remark === "PASSED") {
+        remarkCell.style.color = "green";
+      }
+      remarkCell.style.fontWeight = "bold";
+      remarkCell.style.fontSize = "18px";
       // Mark exam as submitted for this reg number
       localStorage.setItem("CBT_" + regNo, "submitted");
 
@@ -1485,6 +1516,7 @@
       const total = document.getElementById('rTotal').innerText;
       const lass = document.getElementById('rClass').innerText;
       const subject = document.getElementById('rSubject').innerText;
+      const remark = document.getElementById('rRemark').textContent;
 
       // Top logo
       doc.addImage(logoImg, "PNG", 60, 5, 30, 30);
@@ -1510,6 +1542,7 @@
         ["Subject", subject],
         ["Score", `${score} / ${total}`],
         ["Percentage", `${((score / total) * 100).toFixed(2)}%`],
+        ["Remarks", remark],
         ["Date", new Date().toLocaleString()]
       ];
 
@@ -1542,9 +1575,33 @@
           fillColor: false   // No zebra striping
         },
 
+        didParseCell: function (data) {
+
+          // only affect BODY cells (not header)
+          if (data.section === "body") {
+
+            // check first column label = Remarks
+            if (data.row.cells[0].raw === "Remarks") {
+
+              const value = data.cell.raw.toString().toLowerCase();
+
+              if (value === "failed")
+                data.cell.styles.textColor = [255, 0, 0];
+
+              else if (value === "average")
+                data.cell.styles.textColor = [0, 0, 255];
+
+              else if (value === "passed")
+                data.cell.styles.textColor = [0, 128, 0];
+
+              data.cell.styles.fontStyle = "bold";
+            }
+          }
+        },
+
+
         margin: { left: 10, right: 10 }
       });
-
 
       // Footer
       const finalY = doc.lastAutoTable.finalY || 80; // position footer after table
