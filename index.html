@@ -58,7 +58,7 @@
       <label style="--i:5">Select Subject</label>
       <select id="subject" required style="--i:5">
         <option value="">-- Select Subject --</option>
-        <!-- <option value="PHYSICS">Physics</option> -->
+        <option value="PHYSICS">Physics</option>
         <option value="MATHEMATICS">Mathematics</option>
       </select>
 
@@ -432,7 +432,7 @@
       { q: ' A particle moves in a circle of radius 2 m with frequency 4 Hz. Its speed is (π = 3.14)', options: ['12.56 m/s', '25.12 m/s', '31.4 m/s', '50.24 m/s', '6.28 m/s'], answer: 3 },
       { q: 'If mass = 5 kg and acceleration = 3 m/s², calculate the force.', options: ['8 N', '10 N', '12 N', '15 N', '20 N'], answer: 3 },
       { q: 'The instrument used to measure the internal diameter of a tube accurately is', options: ['Ruler', 'Micrometer Screw Guage', 'Vernier Caliper', 'Tape Rule'], answer: 2 },
-      { q: 'The smallest measurement on a standard metre rule is', options: ['0.5 m', '1 cm', '0.1 m', '0.1 cm', '0.1 mm'], answer: 1 },
+      { q: 'The smallest measurement on a standard metre rule is', options: ['0.5 m', '1 cm', '0.1 m', '0.1 cm', '0.1 mm'], answer: 3 },
       { q: 'Parallax error occurs when', options: ['Eye is not perpendicularly above scale', 'Instrument is adjusted', 'Scale expands', 'Value is correct', 'Value is zero'], answer: 0 },
       { q: 'Weight varies from place to place because', options: ['Mass is constant', 'Gravity varies', 'Temperature varies', 'Density varies', 'Height changes'], answer: 1 },
       {
@@ -660,7 +660,7 @@
       {
         q: "Simplify: 8a − 3(2a − 3b)",
         options: ["2a+9b", "5a−9b", "2a−9b", "2a+3b"],
-        answer:0
+        answer: 0
       },
       {
         q: "log 0 is",
@@ -748,7 +748,7 @@
         options: ["50°", "130°", "90°", "100°"],
         answer: 1
       },
-    
+
       {
         q: "Evaluate ",
         img: "images/bodmas.png",
@@ -1401,18 +1401,23 @@
       clearInterval(timer);
       score = 0;
       questions.forEach((q, i) => { if (answers[i] === q.answer) score++; });
-      let percent = (score / questions.length) * 100;
+
+
+
+      // let percent = (score / questions.length) * 100;
 
       let remark = "";
 
-      if (percent < 25) {
-        remark = "FAILED";
-      } 
-      else if (Percent >= 25 && Percent <= 29) {
-        remark = "AVERAGE";
-      } else  {
+
+      if (score >= 30) {
         remark = "PASSED";
+      } else if (score >= 25) {
+        remark = "AVERAGE";
+      } else {
+        remark = "FAILED";
       }
+
+    
 
       document.getElementById('exam').classList.add('hidden');
       document.getElementById('result').classList.remove('hidden');
@@ -1447,6 +1452,7 @@
       remarkCell.style.fontSize = "18px";
       // Mark exam as submitted for this reg number
       localStorage.setItem("CBT_" + regNo, "submitted");
+
 
     }
 
