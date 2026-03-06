@@ -1623,9 +1623,9 @@
         const { jsPDF } = window.jspdf;
 
         const doc = new jsPDF({
-          orientation: "portrait",
+          orientation: "l",
           unit: "mm",
-          format: "a5"
+          format: [220,170]
         });
 
         const logoImg = document.getElementById("schoolLogo");
@@ -1646,12 +1646,12 @@
         const remark = document.getElementById('rRemark').textContent;
 
         // Top logo
-        doc.addImage(logoImg, "PNG", 60, 5, 30, 30);
+        doc.addImage(logoImg, "PNG", 90, 5, 30, 30);
 
 
         // * ========= WATERMARK ========= */
         doc.setGState(new doc.GState({ opacity: 0.12 }));
-        doc.addImage(logoImg, "PNG", 25, 70, 100, 100);
+        doc.addImage(logoImg, "PNG", 50, 60, 120, 120);
         doc.setGState(new doc.GState({ opacity: 1 }));
 
 
@@ -1659,7 +1659,7 @@
         doc.setFontSize(18);
         doc.setFont("helvetica", "bold");
         doc.setTextColor(0, 51, 102);
-        doc.text('YOUR FIRST C.A RESULT', 80, 50, { align: "center" });
+        doc.text('YOUR FIRST C.A RESULT', 105, 50, { align: "center" });
 
         // Table data
         const tableData = [
@@ -1730,12 +1730,11 @@
           margin: { left: 10, right: 10 }
         });
 
-        // Footer
-        const finalY = doc.lastAutoTable.finalY || 80; // position footer after table
-        doc.setFontSize(10);
-        doc.text("Thank you for taking the Test.", 105, finalY + 15, { align: "center" });
-        doc.text("------------------------------------------", 105, finalY + 25, { align: "center" });
-        doc.text("Horlanif Tech 2026", 105, finalY + 35, { align: "center" });
+        // COPYRIGHT
+            doc.setFontSize(11);
+            doc.setTextColor(0, 0, 0);
+            doc.text("© 2026 Horlanif Tech. All Rights Reserved.", 105, 150, { align: "center" });
+
 
         // Save PDF
         doc.save(`${name.replace(/\s+/g, "_")}_${subject.replace(/\s+/g, "_")}_${lass.replace(/\s+/g, "_")}.pdf`);
