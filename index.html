@@ -1,1772 +1,367 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="style.css">
-<link rel="shortcut icon" href="favicon-32x32.png" type="png">
 
 <head>
-  <meta charset="UTF-8">
-  <title>FIRST C.A TEST</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al-Qosimiyyah </title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
+    <nav>
+        <a href="index.html"><img src="QOSIMIYYAH LOGO-01.png"></a>
+        <ul>
+            <li class="active">Home</li>
+            <li>About</li>
+            <li>Academics</li>
+            <li>Admissions</li>
+            <li>Portal</li>
+        </ul>
+        <a href="exam.html" class="login">Login</a>
+        <i class="fa-solid fa-bars" id="menu-btn"></i>
+    </nav>
+    <div class="slider">
+        <div class="slides">
 
-  <div class="container">
+            <div class="slide">
+                <img src="images/sch1.jpg">
+                <div class="caption-01">Welcome to Al-Qosimiyyah <br> Model School</div>
+            </div>
 
-    <!---- INSTRUCTIONS------->
-    <div id="instructions">
-      <h1>Instructions</h1>
-      <ol>
-        <li style="--i:1">This Test consists of 50 questions to be completed within 50 minutes.</li><br>
-        <li style="--i:2">Log using your correct Registration Number(e.g AMOS/2026/PHY/8888), Surname (e.g "ONISABI" or
-          "ayodele") and Class(e.g "SS2").
-          Only one attempt is permitted.</li><br>
-        <li style="--i:3"> Refreshing the page, closing the browser, or minimizing the exam interface is strictly
-          prohibited during
-          the
-          examination.</li><br>
-        <li style="--i:4">You are advised to read all questions carefully and navigate using the provided
-          controls.</li><br>
-        <li style="--i:5">The Test will hold bewteen 5:00 PM-6:00 PM for SS2 Students and 10:00 PM-11:00 PM for SS1
-          Students. </li><br>
-        <li style="--i:6">Upon submission, You are required to download your result in PDF format and forward it
-          via WhatsApp
-          to
-          the examiner.</li> <br>
+            <div class="slide">
+                <img src="images/sch2.jpg">
+                <div class="caption-02">Quality Education</div>
+            </div>
 
-        <li style="--i:7" class="late">Late submission attracts a deduction of 5marks. </li>
-        <button onclick="proceed()">PROCEED</button>
-      </ol>
-      <a href="admin.html" target="_blank">Admin</a>
-    </div>
-
-    <!-- LOGIN -->
-    <div id="login" class="hidden">
-      <h1>FIRST C.A TEST</h1>
-      <label style="--i:1">Full name</label>
-      <input type="text" id="name" placeholder="Enter your full Name" style="--i:1" required><br>
-      <label style="--i:2">Registration Number</label>
-      <input type="text" id="regNo" required placeholder="Enter your Reg Number" style="--i:2"> <br>
-
-      <label style="--i:3">Password</label>
-      <input type="text" id="surname" required placeholder="Enter your Surname" style="--i:3"> <br>
-
-      <label style="--i:4">Student's Class</label>
-      <input type="text" id="grade" required placeholder="Enter your Class" style="--i:4">
-
-      <label style="--i:5">Select Subject</label>
-      <select id="subject" required style="--i:5">
-        <option value="">-- Select Subject --</option>
-        <option value="PHYSICS">Physics</option>
-        <!-- <option value="MATHEMATICS">Mathematics</option> -->
-      </select>
-
-      <br><br>
-      <button onclick="startExam()">Start Test</button>
-
-    </div>
-
-    <!-- EXAM -->
-    <div id="exam" class="hidden">
-      <div class="timer" id="timer"></div>
-      <h2 id="candidate"></h2>
-      <div id="questionBox"></div>
-      <div id="palette"
-        style="display:grid;grid-template-columns:repeat(auto-fit,minmax(40px,1fr));gap:6px;margin-top:15px"></div>
-      <div class="nav">
-        <button onclick="prevQ()">Previous</button>
-        <button onclick="nextQ()">Next</button>
-        <button onclick="submitExam()">Submit</button>
-
-        <button id="openCalc" class="cal-btn">Calculator</button>
-        <div id="calcBox">
-          <div id="calcHeader">
-            <span>Calculator</span>
-            <button id="closeCalc">✖</button>
-          </div>
-
-          <iframe src="calculator.html"></iframe>
+            <div class="slide">
+                <img src="images/sch1.jpg">
+                <div class="caption-03">Build Your Future</div>
+            </div>
         </div>
-      </div>
+        <!-- Dots (optional) -->
+        <div class="dots"></div>
     </div>
 
-    <!-- RESULT -->
-    <div id="result" class="hidden">
-      <button onclick="downloadPDF()" style="margin-bottom:10px">Download Result (PDF)</button>
-      <h2>Your First C.A Result</h2>
-      <table>
-        <tr>
-          <th>Name</th>
-          <th>Reg No</th>
-          <th>Class</th>
-          <th>Subject</th>
-          <th>Score</th>
-          <th>Total</th>
-          <th>Remarks</th>
 
+    <div class="sidebar">
+        <i class="fa-solid fa-arrow-right-from-bracket" id="close-btn"></i>
+        <ul>
+            <li class="active">Home</li>
+            <li>About</li>
+            <li>Academics</li>
+            <li>Admissions</li>
+            <li>Portal</li>
+        </ul>
+        <a href="exam.html" class="login">Login</a>
 
-        </tr>
-        <tr>
-          <td id="rName"></td>
-          <td id="rRegNo"></td>
-          <td id="rClass"></td>
-          <td id="rSubject"></td>
-          <td id="rScore"></td>
-          <td id="rTotal"></td>
-          <td id="rRemark"></td>
-
-        </tr>
-      </table>
-      <!-- <div style="margin-top: 10px;"><a href="horlanif tech CBT.apk"><button style="background-color: navy;">Download
-            App</button></a></div>
-    </div> -->
-      <div class="footer">
-        <p>Powered by Horlanif Tech &#169; 2026</p>
-      </div>
     </div>
 
-    <img id="schoolLogo" src="logo.png" style="display:none;">
+    <section class="program">
+        <h1>OUR PROGRAMS</h1>
+        <div class="feat">
+            <div class="feat-01">
+                <img src="/images/book.png">
+                <h1>WESTERN CURRICULUM</h1>
+                <hr>
+                <h2>Comprehensive education in Math, <br>
+                    Science,English and Humanities</h2>
+            </div>
+            <div class="feat-01">
+                <img src="/images/book.png">
+                <h1>ARABIC CURRICULUM</h1>
+                <hr>
+                <h2>In-depth Arabic, Qur'an, and <br>
+                    Islamic Studies</h2>
+            </div>
+            <div class="feat-01">
+                <img src="/images/microscope.png">
+                <h1>MODERN FACILITIES</h1>
+                <hr>
+                <h2>Science Labs & ICT</h2>
+            </div>
+            <div class="feat-01">
+                <img src="images/book.png">
+                <h1>HOLISTIC DEVELOPMENT</h1>
+                <hr>
+                <h2>Sports,Arts,Leadership, and <br>
+                    Character Building</h2>
+            </div>
+            <div class="feat-01">
+                <img src="images/book.png">
+                <h1>TAHFIZ PROGRAMME</h1>
+                <hr>
+                <h2>Qur'an Memorization with <br>
+                    Proper Guidance </h2>
+            </div>
 
+        </div>
+    </section>
+
+    <section class="ant">
+        <h1>SCHOOL ANTHEM</h1>
+        <div class="stanza">
+            <div class="stan-01">
+
+                Al-Qosimiyyah we are great <br>
+                We are great <br>
+                Al-Qosimiyyah we are great <br>
+                We are great x2 <br>
+                Al-Qosimiyyah we are great <br>
+                For the knowledge we are great <br>
+                And conciousness of Allah <br>
+                We will always x2 <br>
+                We will always love our school <br>
+                Our School
+
+            </div>
+            <div class="stan-02">
+
+                Education is our mission<br>
+                We are searching for the truth<br>
+                Day and night x2<br>
+                Our future shall be bright<br>
+                Our good parents are great<br>
+                For the love they have for Us<br>
+                To whom much is given<br>
+                Much is always expected<br>
+                Our teachers are role model<br>
+                They are teachers and not cheaters <br>
+                We will keep on x2 <br>
+                We will keep on,so they are blessed
+                </marquee>
+            </div>
+            <div class="stan-03">
+                Oh Allah bless our school<br>
+                Our parents and our teachers<br>
+                Grant us knowledge<br>
+                Grant us wisdom<br>
+                Crown our effort with success<br>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="coming">
+        <div class="news">
+            <h2>Latest News</h2>
+            <div class="first">
+                <div>
+                    <h3>Admission Opens</h3>
+                    <h4>2025/2026 Session</h4>
+                    <hr>
+                    <p>Enrollment now in progress</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="event">
+            <h2>Upcoming Events</h2>
+            <marquee behavior="" direction="DOWN" scrollamount="2">
+                <div class="list">
+                    <h5>MAY 20</h5>
+                    <p>PTA Meeting Notice</p>
+                </div>
+                <div class="list">
+                    <h5>JULY</h5>
+                    <p>THIRD TERM EXAMINATION</p>
+                </div>
+                <div class="list">
+                    <h5>MAY 20</h5>
+                    <p>PTA Meeting Notice</p>
+                </div>
+                <div class="list">
+                    <h5>MAY 20</h5>
+                    <p>PTA Meeting Notice</p>
+                </div>
+            </marquee>
+        </div>
+    </section>
+
+    <section class="prefect">
+        <h2>Prefects of the Week</h2>
+        <div class="sect" id="prefectContainer">
+            <div class="profile">
+                <div><img src="logo.png"></div>
+                <table>
+                    <tr>
+                        <td>NAME</td>
+                        <td>Sulaimon Mujaheed</td>
+                    </tr>
+                    <tr>
+                        <td>CLASS</td>
+                        <td>SS1</td>
+                    </tr>
+                    <tr>
+                        <td>POST HELD</td>
+                        <td>Senior Prefect Boy</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="profile">
+                <div><img src="logo.png"></div>
+                <table>
+                    <tr>
+                        <td>NAME</td>
+                        <td>AYANDELE YUSROH</td>
+                    </tr>
+                    <tr>
+                        <td>CLASS</td>
+                        <td>SS2</td>
+                    </tr>
+                    <tr>
+                        <td>POST HELD</td>
+                        <td>Senior Prefect Girl</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+
+    </section>
+    <!-- JS FOR RANDOM PREFECT -->
     <script>
-      const physicsQuestions = [
-         {
-         q: "The unit of specific heat capacity is:",
-         options: ["J/kg", "J/kg°C", "kg/J", "°C/kg"],
-         answer: 1
-        },
-        {
-          q: "The quantity of heat absorbed is calculated using:",
-          options: ["Q = mc", "Q = mct", "Q = mcΔT", "Q = mt"],
-          answer: 2
-        },
-        {
-          q: "If mass increases, heat required will:",
-          options: ["Decrease", "Remain constant", "Increase", "Become zero"],
-          answer: 2
-        },
-        {
-          q: "Water is used in car radiators because it has:",
-          options: ["Low density", "High boiling point", "High specific heat capacity", "Low melting point"],
-          answer: 2
-        },
-        {
-          q: "Which has the highest specific heat capacity?",
-          options: ["Copper", "Iron", "Aluminium", "Water"],
-          answer: 3
-        },
-        {
-          q: "Evaporation occurs:",
-          options: ["At boiling point only", "At all temperatures", "At 0°C", "Only in sunlight"],
-          answer: 1
-        },
-        {
-          q: "Boiling takes place:",
-          options: ["Only at surface", "Throughout the liquid", "Only in cold liquid", "Without heating"],
-          answer: 1
-        },
-        {
-          q: "During boiling, temperature:",
-          options: ["Increases", "Decreases", "Remains constant", "Fluctuates"],
-          answer: 2
-        },
-        {
-          q: "Evaporation causes cooling because:",
-          options: ["Cold molecules escape", "Fast molecules escape", "Water freezes", "Heat is destroyed"],
-          answer: 1
-        },
-        {
-          q: "Which increases evaporation?",
-          options: ["High humidity", "Low temperature", "Large surface area", "Closed container"],
-          answer: 2
-        },
-        {
-          q: "Water boils lower on mountains because:",
-          options: ["Gravity less", "Atmospheric pressure low", "Temperature high", "Air heavy"],
-          answer: 1
-        },
-        {
-          q: "Heat to change liquid to gas without temp change:",
-          options: ["Specific heat", "Sensible heat", "Latent heat", "Heat capacity"],
-          answer: 2
-        },
-        {
-          q: "A machine is used to:",
-          options: ["Create energy", "Destroy energy", "Make work easier", "Increase mass"],
-          answer: 2
-        },
-        {
-          q: "Mechanical Advantage (MA) is:",
-          options: ["Effort/Load", "Load/Effort", "Load×Effort", "Effort-Load"],
-          answer: 1
-        },
-        {
-          q: "Efficiency formula is:",
-          options: ["VR/MA ×100", "MA/VR ×100", "Load/Effort ×100", "Effort/Load ×100"],
-          answer: 1
-        },
-        {
-          q: "Efficiency of real machine is less than 100% because of:",
-          options: ["Friction", "Weight", "Speed", "Gravity"],
-          answer: 0
-        },
-        {
-          q: "Which is a simple machine?",
-          options: ["Engine", "Generator", "Lever", "Turbine"],
-          answer: 2
-        },
-        {
-          q: "Velocity Ratio is ratio of:",
-          options: ["Load/Effort", "Effort/Load", "Distance effort/Distance load", "Distance load/Distance effort"],
-          answer: 2
-        },
-        {
-          q: "If MA = 5 and VR = 5, efficiency is:",
-          options: ["100%", "50%", "25%", "5%"],
-          answer: 0
-        },
-        {
-          q: "Specific heat capacity is:",
-          options: [
-            "Heat to raise 1kg by 1°C",
-            "Heat to boil water",
-            "Heat to melt solid",
-            "Total heat energy"
-          ],
-          answer: 0
-        },
-        {
-          q: "A machine with 100% efficiency is called _________:",
-          options: [
-            "Deal machine",
-            "Excellent machine",
-            "ID machine",
-            "Ideal machine"
-          ],
-          answer: 3
-        },
-        {
-          q: "Axle can also be called ___________",
-          options: [
-           "Driving",
-            "Drive",
-            "Driver",
-          "Driven"
-          ],
-          answer: 2
-         },
-
-
-        {
-          q: "A solid that changes directly into gas upon heating is said to have undergone _________.",
-          options: ["Evaporation", "Vaporization", "Solidification", "Sublimation"],
-          answer: 3
-        },
-        {
-          q: "Cooling of motor car engine uses ____________ application.",
-          options: ["Radiation", "Convection", "Conduction", "Evaporation"],
-          answer: 1
-        },
-        {
-          q: "A bimetallic strip comprises of _________ and _________ metal.",
-          options: ["Iron & Lead", "Bronze & Brass", "Brass & Iron", "Lead & Brass"],
-          answer: 2
-        },
-        {
-          q: "Which of the following surfaces will absorb radiant heat energy best?",
-          options: ["White", "Red", "Black", "Yellow"],
-          answer: 2
-        },
-        {
-          q: "A room is heated by means of a charcoal fire. Jamal standing away from the fire is warmed by",
-          options: ["Reflection", "Conduction", "Radiation", "Convection"],
-          answer: 2
-        },
-        {
-          q: "In which of the following is the expansion of solids a disadvantage?",
-          options: ["Fire alarms", "Thermostat", "Filling of tyres into rims", "Balance of wheel of a watch"],
-          answer: 3
-        },
-        {
-          q: "_____________ is regarded as good emitter and poor absorber of heat.",
-          options: ["Black & Dull Colours", "White & Shiny Colours", "Multicolours", "Rainbow"],
-          answer: 1
-        },
-        {
-          q: "The moon’s acceleration due to gravity is 1/6 of the earth’s value. The weight of a bowling ball on the moon would be",
-          options: [
-            "6 times its weight on the earth",
-            "1/6 of its weight on the earth",
-            "36times its weight on the earth",
-            "equal to its weight on the earth"
-          ],
-          answer: 1
-        },
-        {
-          q: "A body is whirled in a horizontal circle at the rate of 800 revolutions per minute. Determine the angular velocity",
-          options: [
-            "100πrads-1",
-            "33.3πrads-1",
-            "29.5πrads-1",
-            "26.7πrads-1"
-          ],
-          answer: 3
-        },
-        {
-          q: "The tangential force acting on an object that opposes it from sliding freely on the adjacent surface is called.",
-          options: [
-            "Normal force",
-            "Friction force",
-            "Weight",
-            "Upthrust"
-          ],
-          answer: 1
-        },
-        {
-          q: "Particles of mass 10-2kg is fixed to the tip of a fan blade which rotates with angular velocity of 100rads-1. If the radius of the blade is 0.2m, the centripetal force is",
-          options: [
-            "2N",
-            "20N",
-            "200N",
-            "400N"
-          ],
-          answer: 1
-        },
-        {
-          q: "A short chain is sometimes attached to the back of a petrol tanker to?",
-          options: [
-            "generate more friction",
-            "ensure the balancing of the tanker",
-            "caution the driver when over speeding",
-            "conduct excess charges to the earth"
-          ],
-          answer: 3
-        },
-        {
-          q: "If a wheel 1.2m in diameter rotates at one revolution per second, calculate the velocity of the wheel.",
-          options: [
-            "3.6ms-1",
-            "3.77ms-1",
-            "4.0ms-1",
-            "7.5ms-1"
-          ],
-          answer: 1
-        },
-
-        {
-          q: "A car of mass 800kg initially at rest is accelerated at the rate of 4ms⁻². The kinetic energy of the car after 5s is",
-          options: ["6.40 × 10³ J", "2.56 × 10⁴ J", "1.60 × 10⁵ J", "6.40 × 10⁵ J"],
-          answer: "2"
-        },
-        {
-          q: "A pump lifts water into an overhead tank at a height of 12m at the rate of 5 kg s⁻¹. The power of the pump is",
-          options: ["60 W", "600 W", "720 W", "1200 W"],
-          answer: 1
-        },
-        {
-          q: "A boy of weight 300N climbs to the top of a hill of height 20m. The work done against gravity is",
-          options: ["6000 J", "600 J", "320 J", "15 J"],
-          answer: 0
-        },
-        {
-          q: "An engine develops power of 750W while moving a car at constant velocity 3 m s⁻¹. The force exerted on the car by the engine is ",
-          options: ["83.3 N", "250 N", "750 N", "2250 N"],
-          answer: 1
-        },
-        {
-          q: "A 70kg man ascends a height of 4m in 7s. The power expended by the man is ",
-          options: ["40 W", "100 W", "280 W", "400 W"],
-          answer: 3
-        },
-        {
-          q: "24 kJ of heat is produced by an engine of 10W. If one quarter is converted to mechanical energy, the engine will run for ",
-          options: ["10 min", "40 min", "100 min", "400 min"],
-          answer: 0
-        },
-        {
-          q: "A body initially at rest is accelerated at the rate of 0.2ms-2 for 5s under a constant force of 50N. The work done on the body is",
-          options: ["10 J", "50 J", "125 J", "250 J"],
-          answer: 2
-        },
-        {
-          q: "A water pump of 1.2kW rating pumps 480kg of water into an overhead tank at a height of 5m in 30s. The efficiency of the pump is ",
-          options: ["90%", "80%", "66.7%", "62.5%"],
-          answer: 2
-        },
-        {
-          q: "A bullet of mass 40g travelling at 300ms-1 strikes a target normally and penetrates a distance of 20cm in the target before coming to rest. The average  force exerted on the bullet by the target is ",
-          options: ["90 N", "400 N", "900 N", "9000 N"],
-          answer: 3
-        },
-        {
-          q: "An object of mass 12kg held at a height of 5m above the ground for 30s.The work done within the period is",
-          options: ["600 J", "200 J", "60 J", "0 J"],
-          answer: 3
-        },
-        {
-          q: "The temperature 45⁰C is the same as ",
-          options: ["25°F", "57°F", "81°F", "113°F"],
-          answer: 3
-        },
-        {
-          q: "The lower fixed point corresponds to a length of 20mm on a steam of a thermometer while the upper fixed point corresponds to 160mm. The temperature corresponding to a length of 48mm is ",
-          options: ["20°C", "30°C", "41.7°C", "50°C"],
-          answer: 0
-        },
-        {
-          q: "A thermometer with an arbitrary scale Y registers -50⁰Y at the lower fixed point and +70⁰Y at the upper fixed point. The Celsius temperature corresponding to 30⁰Y ",
-          options: ["42.9°C", "50.0°C", "66.7°C", "75.0°C"],
-          answer: 2
-        },
-        {
-          q: "The temperature of -93⁰C corresponds to an absolute temperature of ",
-          options: ["366 K", "293 K", "273 K", "180 K"],
-          answer: 3
-        },
-        {
-          q: "A faulty mercury –in-glass thermometer has 1.5⁰C and 103.0⁰C as its ice and steam points respectively. When the true thermometer is 40⁰C the reading on the thermometer is ",
-          options: ["42.7°C", "42.1°C", "40.6°C", "39.1°C"],
-          answer: 1
-        },
-        {
-          q: "A thermocouple works on the principle of",
-          options: [
-            "variation of emf with temperature",
-            "variation of volume with temperature",
-            "variation of resistance with temperature",
-            "variation of pressure with temperature"
-          ],
-          answer: 0
-        },
-        {
-          q: "A telegraph wire of length 100.0m at 30⁰C has a linear expansivity of 2 x 10-5K-1 . The length of the wire at a temperature of -10⁰C ",
-          options: ["100.08 m", "100.04 m", "99.96 m", "99.92 m"],
-          answer: 3
-        },
-        {
-          q: "A square plate of side 10cm is made of a metal of linear expansivity 2 x 10-5K-1 . As the plate is heated from 30⁰C to 100⁰C, the area of one face of the plate will increase to ",
-          options: ["100.1 cm²", "100.3 cm²", "101.4 cm²", "102.8 cm²"],
-          answer: 1
-        },
-
-        {
-          q: "A metal cube of Volume V  and linear expansivity α is heated through a temperature rise of T. The increase in volume of the cube is ",
-          options: [
-            "3αVT",
-            "2αVT",
-            "αVT",
-            "αVT/3"
-
-          ],
-          answer: 0
-        },
-
-        {
-          q: "Which of the following substances is not an insulator? ",
-          options: [
-            "Glass",
-            "Silver",
-            "Plastic",
-            "Clay"
-
-          ],
-          answer: 1
-        },
-
-        {
-          q: "An electric charge can be transmitted through ",
-          options: [
-            "rubber, wood and stone",
-            "clay, paper and plastic",
-            "the human body, water and metals ",
-            "acid, cloth and glass"
-
-          ],
-          answer: 2
-        },
-        {
-          q: "Which of the following is not a suitable dielectric material? ",
-          options: ["Brass", "Paraffin wax", "Glass", "Ebonite"],
-          answer: 0
-        },
-
-        {
-          q: '____________ quantity is obtained by combination of two other quantities. ',
-          options: ['Fundamental', 'Mass', 'Area', 'Derived'],
-          answer: 3
-        },
-
-        {
-          q: 'The following are units of temperature EXCEPT ',
-          options: ['℉', '℃', 'K', 'None of the options'],
-          answer: 3
-        },
-
-        { q: 'The SI unit of force is?', options: ['Joule', 'Newton', 'Watt', 'Pascal'], answer: 1 },
-        { q: 'A car travels at an average speed of 110km/h. What distance does it cover in 12minutes?', options: ['1320km', '550km', '22km', '0.36km'], answer: 2 },
-        { q: 'The dimensional formula of acceleration is __________. ', options: ['LT⁻²', 'MLT⁻²', 'L²T⁻¹', 'LT'], answer: 0 },
-        { q: 'A vehicle of mass 800000g is moving at 20 m/s. Its momentum is __________.', options: ['16,000 Ns', '20,000 Ns', '18,000 Ns', '10,000 Ns'], answer: 0 },
-        { q: 'A body initially moving at 12 m/s is brought to rest in 3 s. The retardation is __________. ', options: ['–4 m/s²', '4 m/s²', '–6 m/s²', '6 m/s²'], answer: 2 },
-        { q: 'The instrument used to measure the internal diameter of a tube accurately is ___________', options: ['Ruler', 'Micrometer Screw Guage', 'Vernier Caliper', 'Tape Rule'], answer: 2 },
-        { q: 'A wheel rotates at 5 revolutions per second. The angular velocity is __________. (π = 3.14) ', options: ['3.14 rad/s', '10 rad/s', '15 rad/s', '31.4 rad/s'], answer: 3 },
-        { q: 'Weight varies from place to place because __________.', options: ['Mass is constant', 'Gravity varies', 'Temperature varies', 'Height changes'], answer: 1 },
-        { q: 'The SI unit of force is?', options: ['Joule', 'Newton', 'Watt', 'Pascal'], answer: 1 },
-        { q: ' ____________ quantity is obtained by combination of two other quantities.', options: ['Fundamental', 'Mass', 'Time', 'Derived'], answer: 3 },
-        { q: 'The following are units of temperature EXCEPT', options: ['℉', '℃', 'K', 'None of the above'], answer: 3 },
-        { q: 'Velocity along a straight line is also known as ________', options: ['Average Velocity', 'Constant Velocity', 'Speed/Time', 'All of the above'], answer: 1 },
-        { q: 'The full meaning of S.I unit is ______________', options: ['Standard International', 'System International', 'International System of Units', 'Scientific International Units'], answer: 2 },
-        { q: ' A train moves with a uniform velocity of 36km/hr for 10s. Calculate the distance travelled?', options: ['50 km', '100 m', '10 m/s', '20 m'], answer: 3 },
-        { q: 'The fundamental unit of Luminous intensity is', options: ['Ampere', 'Mole', 'Kilogram', 'Candela'], answer: 3 },
-        { q: 'Which of the following units is equivalent to Newton (N)', options: ['kgm', 'kgms²', 'kgms⁻²', 'kgm'], answer: 2 },
-        { q: 'The dimension of force is', options: ['ML', 'MLT²', 'MLT⁻²', 'MLT'], answer: 2 },
-        { q: 'The area covered under velocity-time graph represent', options: ['uniform acceleration', 'uniform speed', 'total speed', 'total distance travelled'], answer: 3 },
-        { q: 'Which of the following unit is equivalent to momentum (Ns)', options: ['kgm', 'kgm', 'kgms⁻1', 'Nms'], answer: 2 },
-        { q: ' A car of mass 15kg moving with a velocity of 2ms for 10 second The power dissipated by the car is', options: ['30j', '6j', '6w', '30kg'], answer: 2 },
-        { q: 'The energy released from the sun is known as', options: ['Heat energy', 'Tempration', 'solar energy', 'solar panels'], answer: 2 },
-        { q: 'The unit of momentum is', options: ['js', 'Ns', 'NS', 'Nms'], answer: 1 },
-        { q: 'Which of the following is not a scalar quantity?', options: ['density', 'weight', 'speed', 'mass'], answer: 1 },
-        { q: ' ___________ is the rate of doing work or the rate at which energy is expended and measured in watts', options: ['energy', 'force', 'power', 'work'], answer: 2 },
-        { q: 'Which of the following pairs of quantities are not derived', options: ['acceleration and length', 'force and density', 'time and electric current', 'volume and mass'], answer: 2 },
-        { q: ' A car travels at an average speed of 110km/h. What distance does it cover in 12minutes?', options: ['1320 km', '550km', '22km', '9.17km', '0.36km'], answer: 2 },
-        { q: ' A spring makes 40 oscillations in 15s, calculate its angular velocity [π=3.14]', options: ['251.20 rad/secs', '16.75rad/secs', '6.28rad/secs', '2.36rad/secs', '0.43rad/secs'], answer: 1 },
-        { q: 'A ball of mass 7kg falls from a height of 120m. Calculate its kinetic energy after falling through a distance of 70m', options: ['1715 J', '4900 J', '2450 J', '3430 J'], answer: 1 },
-        { q: 'A body of mass 5 kg moves with velocity 8 m/s. Its momentum is', options: ['13 Ns', '20 Ns', '40 Ns', '80 Ns'], answer: 2 },
-        { q: ' A car accelerates from rest at 2 m/s² for 6 seconds. The velocity gained is', options: ['2 m/s', '6 m/s', '8 m/s', '12 m/s'], answer: 3 },
-        { q: 'The unit of pressure is', options: ['N/m³', 'N/m²', 'Nm²', 'Nm⁻²'], answer: 1 },
-        { q: 'The force that opposes motion between two surfaces in contact is called', options: ['Tension', 'Friction', 'Weight', 'Torque', 'Pressure'], answer: 1 },
-        { q: 'Which method reduces friction?', options: ['Roughening surfaces', 'Lubrication', 'Adding weight', 'Increasing area', 'Sanding'], answer: 1 },
-        { q: 'The coefficient of friction has', options: ['Unit N', 'Unit m', 'Unit Nm', 'Unit kg', 'No unit'], answer: 4 },
-        { q: 'A body moving in a circular path changes __________ continuously.', options: ['Speed', 'Mass', 'Velocity', 'Time', 'Weight'], answer: 2 },
-        { q: 'The force needed to keep a body in circular motion is', options: ['Gravity', 'Centrifugal', 'Centripetal', 'Electrostatic', 'Inertia'], answer: 2 },
-        { q: ' A horizontal straight line on a V–T graph represents', options: ['Increasing speed', 'Decreasing speed', 'Constant velocity', 'Constant acceleration', 'Deceleration'], answer: 2 },
-        { q: 'The slope of a velocity–time graph gives', options: ['Velocity', 'Time', 'Acceleration', 'Force', 'Distance'], answer: 2 },
-        { q: 'The area under a velocity–time graph gives', options: ['Distance', 'Power', 'Work', 'Force', 'Mass'], answer: 0 },
-        { q: 'The dimensional formula of acceleration is', options: ['LT⁻²', 'MLT⁻²', 'L²T⁻¹', 'LT', 'T⁻²'], answer: 0 },
-        { q: 'Density is defined as', options: ['Mass × volume', 'Mass ÷ volume', 'Volume ÷ mass', 'Weight × height', 'Weight ÷ mass'], answer: 1 },
-        { q: 'A body is said to be in motion if it', options: ['Has mass', 'Changes position', 'Has volume', 'Is visible', 'Has energy'], answer: 1 },
-        { q: 'The friction that acts on a moving object is', options: ['Static', 'Limiting', 'Rolling', 'Sliding', 'Kinetic'], answer: 4 },
-        { q: 'Motion in a circle at constant speed is', options: ['Curvilinear', 'Accelerated', 'Simple', 'Linear', 'Rotational'], answer: 4 },
-        { q: 'Vehicles moving around a bend are kept on track by', options: ['Gravity', 'Centrifugal force', 'Magnetic force', 'Centripetal force', 'Resistance'], answer: 3 },
-        { q: 'The dimensional formula of pressure is', options: ['ML⁻¹T⁻²', 'MLT⁻¹', 'L²T⁻¹', 'MT⁻²', 'L⁻³T⁻²'], answer: 0 },
-        { q: 'The SI unit of energy is', options: ['Newton', 'Joule', 'Watt', 'Pascal', 'Coulomb'], answer: 1 },
-        { q: ' A vehicle of mass 800000g is moving at 20 m/s. Its momentum is', options: ['16,000 Ns', '20,000 Ns', '18,000 Ns', '10,000 Ns', '8,000 Ns'], answer: 0 },
-        { q: 'Calculate the frictional force if coefficient of friction is 0.25 and normal reaction is 400 N.', options: ['100 N', '80 N', '160 N', '120 N', '40 N'], answer: 0 },
-        { q: ' A stone of mass 2 kg is tied to a string and whirled in a circle of radius 1.5 m with speed 5 m/s. Find the centripetal force.', options: ['10 N', '20 N', '25 N', '33.3 N', '50 N'], answer: 3 },
-        { q: ' A body initially moving at 12 m/s is brought to rest in 3 s. The retardation is', options: ['-4 m/s²', '4 m/s²', '-6 m/s²', '6 m/s²', '-12 m/s²'], answer: 0 },
-        { q: ' A wheel rotates at 5 revolutions per second. The angular velocity is (π = 3.14)', options: ['3.14 rad/s', '10 rad/s', '15 rad/s', '31.4 rad/s', '25 rad/s'], answer: 3 },
-        { q: ' If mass = 5 kg and acceleration = 3 m/s², calculate the force.', options: ['8 N', '10 N', '12 N', '15 N', '20 N'], answer: 3 },
-        { q: ' A particle moves in a circle of radius 2 m with frequency 4 Hz. Its speed is (π = 3.14)', options: ['12.56 m/s', '25.12 m/s', '31.4 m/s', '50.24 m/s', '6.28 m/s'], answer: 3 },
-        { q: 'If mass = 5 kg and acceleration = 3 m/s², calculate the force.', options: ['8 N', '10 N', '12 N', '15 N', '20 N'], answer: 3 },
-        { q: 'The instrument used to measure the internal diameter of a tube accurately is', options: ['Ruler', 'Micrometer Screw Guage', 'Vernier Caliper', 'Tape Rule'], answer: 2 },
-        { q: 'The smallest measurement on a standard metre rule is', options: ['0.5 m', '1 cm', '0.1 m', '0.1 cm', '0.1 mm'], answer: 3 },
-        { q: 'Parallax error occurs when', options: ['Eye is not perpendicularly above scale', 'Instrument is adjusted', 'Scale expands', 'Value is correct', 'Value is zero'], answer: 0 },
-        { q: 'Weight varies from place to place because', options: ['Mass is constant', 'Gravity varies', 'Temperature varies', 'Density varies', 'Height changes'], answer: 1 },
-        {
-          q: "A solid that changes directly into gas upon heating is said to have undergone _________.",
-          options: ["Evaporation", "Vaporization", "Solidification", "Sublimation"],
-          answer: 3
-        },
-        {
-          q: "Cooling of motor car engine uses ____________ application.",
-          options: ["Radiation", "Convection", "Conduction", "Evaporation"],
-          answer: 1
-        },
-        {
-          q: "A bimetallic strip comprises of _________ and _________ metal.",
-          options: ["Iron & Lead", "Bronze & Brass", "Brass & Iron", "Lead & Brass"],
-          answer: 2
-        },
-        {
-          q: "Which of the following surfaces will absorb radiant heat energy best?",
-          options: ["White", "Red", "Black", "Yellow"],
-          answer: 2
-        },
-        {
-          q: "A room is heated by means of a charcoal fire. Jamal standing away from the fire is warmed by",
-          options: ["Reflection", "Conduction", "Radiation", "Convection"],
-          answer: 2
-        },
-        {
-          q: "In which of the following is the expansion of solids a disadvantage?",
-          options: ["Fire alarms", "Thermostat", "Filling of tyres into rims", "Balance of wheel of a watch"],
-          answer: 3
-        },
-        {
-          q: "_____________ is regarded as good emitter and poor absorber of heat.",
-          options: ["Black & Dull Colours", "White & Shiny Colours", "Multicolours", "Rainbow"],
-          answer: 1
-        }
-
-      ];
-
-      const mathsQuestions = [
-
-        {
-          q: 'To construct a 90° angle without a protractor, you can use:',
-          options: ['Compass and ruler', 'Ruler only', 'Divider only', 'None of the above'],
-          answer: 0
-        },
-        {
-          q: 'To construct a 30° angle using a compass, you first construct:',
-          options: ['60° angle', '90° angle', '45° angle', '120° angle'],
-          answer: 0
-        },
-
-        {
-          q: 'An angle bisector divides an angle into:',
-          options: ['Two equal angles', 'Two complementary angles', 'Two obtuse angles', 'Two reflex angles'],
-          answer: 0
-        },
-
-        {
-          q: 'The center of an inscribed circle is intersection of:',
-          options: ['Altitudes', 'Medians', 'Angle bisectors', 'Perpendicular bisectors'],
-          answer: 2
-        },
-        {
-          q: 'Which instrument is NOT normally required for geometric construction?',
-          options: ['Compass', 'Ruler', 'Calculator', 'Divider'],
-          answer: 2
-        },
-
-        {
-          q: 'Which tool is used to draw arcs in construction?',
-          options: ['Ruler', 'Compass', 'Protractor', 'Divider'],
-          answer: 1
-        },
-
-        {
-          q: 'The center of a circumcircle is the intersection of:',
-          options: ['Altitudes', 'Medians', 'Perpendicular bisectors', 'Angle bisectors'],
-          answer: 2
-        },
-        {
-          q: 'Which construction divides an angle into two equal parts?',
-          options: ['Perpendicular construction', 'Angle bisector', 'Parallel construction', 'Midpoint construction'],
-          answer: 1
-        },
-        {
-          q: "Simplify: 2/(x+y) − 1/(x−y)",
-          options: [
-            "3/(x−y)",
-            "(x−3y)/(x−y)²",
-            "(x−3y)/(a²+b²)",
-            "(x−3y)/(x²−y²)",
-            "(3x−y)/(x²−y²)"
-          ],
-          answer: 3
-        },
-        {
-          q: "Simplify: 13x − 3(5x − 4y + 1)",
-          options: [
-            "2x−2y−3",
-            "−2x−12y−3",
-            "−2x+12y+3",
-            "12y−2x+3",
-            "12y−2x−3"
-          ],
-          answer: 4
-        },
-        {
-          q:
-            "Given that x ∝ 1/√y and x = 5 when y = 25, find the value of y when x = 1⅔",
-          options: ["225", "25", "22.5", "√15", "3√5"],
-          answer: 0
-        },
-        {
-          q: "Make t the subject of the formula: k = m√((t − p)/r)",
-          options: [
-            "(rk² + p)/m²",
-            "(rk² + pm²)/m²",
-            "(rk² − p)/m²",
-            "(rk² − p²)/m²",
-            "(rk² − pm²)/m²"
-          ],
-          answer: 1
-        },
-        {
-          q: "Solve: (2m+1)/6 − (3m−1)/4 = 0",
-          options: ["−1", "2", "−0.25", "0.5", "1"],
-          answer: 4
-        },
-        {
-          q: "Simplify: (2⅓ + 5/2 − 1) / (12 − 11¾)",
-          options: ["10⅔", "15⅓", "16¼", "17½"],
-          answer: 1
-        },
-        {
-          q:
-            "Given that (5m − n)/(m + 4n) = −4, find the value of m/n",
-          options: ["−1⅔", "5/3", "−3/5", "−5/3", "1⅓"],
-          answer: 3
-        },
-        {
-          q:
-            "If 4x − 2 = 3x − 5, find the value of 7x",
-          options: ["7", "−3", "−21", "−49"],
-          answer: 2
-        },
-        {
-          q: "Solve: 6(y−4) + 3(y+7) = 6",
-          options: ["3/2", "2/3", "1", "0"],
-          answer: 2
-        },
-        {
-          q: "Evaluate: 5⁻¹",
-          options: ["−5", "1/5", "1/25", "0.5"],
-          answer: 1
-        },
-        {
-          q: "If log₁₀q = 5, find q",
-          options: ["5000", "100000", "10000", "500", "50"],
-          answer: 1
-        },
-        {
-          q: "Simplify: 81^(3/4) / 27^(−2/3)",
-          options: ["3¹", "3⁵", "36", "9³", "3⁻⁵"],
-          answer: 1
-        },
-        {
-          q:
-            "Evaluate 0.0013 ÷ 0.016, leaving your answer in standard form (2 s.f.)",
-          options: [
-            "8.1 × 10⁻¹",
-            "8.1 × 10⁻²",
-            "8.1 × 10⁻³",
-            "0.81",
-            "0.081"
-          ],
-          answer: 1
-        },
-        {
-          q: "Which of the following is equal to 72/125?",
-          options: [
-            "(2³ × 3²)/5³",
-            "(2⁴ × 3)/5³",
-            "(2³ × 3²)/5⁵",
-            "(2⁴ × 3)/5⁶",
-            "(2² × 3² × 4²)/5²"
-          ],
-          answer: 0
-        },
-        {
-          q:
-            "Given £ = {1,2,3,…,10}, M = {x : x is even}, P = {z : z is prime}, find M′ ∩ P",
-          options: ["{5}", "{2,8}", "{4,6,8,10}", "{}", "{3,5,7}"],
-          answer: 4
-        },
-
-        {
-          q: 'To construct a 90° angle without a protractor, you can use:',
-          options: ['Compass and ruler', 'Ruler only', 'Divider only', 'None of the above'],
-          answer: 0
-        },
-        {
-          q: 'To construct a 30° angle using a compass, you first construct:',
-          options: ['60° angle', '90° angle', '45° angle', '120° angle'],
-          answer: 0
-        },
-
-        {
-          q: 'An angle bisector divides an angle into:',
-          options: ['Two equal angles', 'Two complementary angles', 'Two obtuse angles', 'Two reflex angles'],
-          answer: 0
-        },
-
-        {
-          q: 'The center of an inscribed circle is intersection of:',
-          options: ['Altitudes', 'Medians', 'Angle bisectors', 'Perpendicular bisectors'],
-          answer: 2
-        },
-        {
-          q: "If 3y + 4 − y/3 = y + 9, find y",
-          options: ["3", "4", "5", "6"],
-          answer: 0
-        },
-        {
-          q: "Simplify: 8a − 3(2a − 3b)",
-          options: ["2a+9b", "5a−9b", "2a−9b", "2a+3b"],
-          answer: 0
-        },
-        {
-          q: "log 0 is",
-          options: ["0", "1", "Undefined", "Infinity"],
-          answer: 2
-        },
-        {
-          q: "Convert 2748 to base 2",
-          options: ["101110100", "11011100", "101101100", "111010100"],
-          answer: 3
-        },
-        {
-          q: "The decimal part of a logarithm is called",
-          options: ["Character", "Characteristics", "Mantissa", "Mantis"],
-          answer: 2
-        },
-        {
-          q: "logₐ(a³) = ?",
-          options: ["a³", "3", "3a", "1/3"],
-          answer: 1
-        },
-        {
-          q:
-            "If a² − 8a + k is a perfect square, find k",
-          options: ["2", "4", "8", "16"],
-          answer: 3
-        },
-        {
-          q:
-            "Which of the following is not mathematically proper?",
-          options: ["−2x + y", "1/√2", "1/(−2)", "All of the options"],
-          answer: 1
-        },
-        {
-          q:
-            "Umar can change 3x − 6 to an equation by adding",
-          options: ["×", "x", "π", "="],
-          answer: 3
-        },
-        {
-          q:
-            "Which of the following is not a polynomial?",
-          options: [
-            "−3y + (2y)⁴",
-            "−3y + (2y)⁰",
-            "−3 + 2⁴",
-            "3y + y²"
-          ],
-          answer: 2
-        },
-        {
-          q: "Solve for x: 5(2^(x−3)) = 160",
-          options: ["6", "7", "8", "10"],
-          answer: 2
-        },
-
-
-        {
-          q: "Find the Perimeter of the figure below",
-          img: "images/trapezium.png",
-          options: ["68m", "62m", "78m", "300m"],
-          answer: 2
-        },
-        {
-          q: "What is the value of sin 30°?",
-          img: "",
-          options: ["0.5", "0.87", "1", "0.707"],
-          answer: 0
-        },
-        {
-          q: "Calculate the area of the figure below",
-          img: "images/trapezium.png",
-          options: ["300m2", "600m2", "500m2", "350m2"],
-          answer: 0
-        },
-        {
-          q: "Find the Perimeter of the figure below",
-          img: "images/shape1.png",
-          options: ["33cm", "35cm", "32cm", "31cm"],
-          answer: 2
-        },
-        {
-          q: "What is the value of p?",
-          img: "images/shape2.png",
-          options: ["50°", "130°", "90°", "100°"],
-          answer: 1
-        },
-
-        {
-          q: "Evaluate ",
-          img: "images/bodmas.png",
-          options: ["10", "0", "5", "15"],
-          answer: 2
-        },
-        {
-          q: "What is the value of sin 30°?",
-          img: "",
-          options: ["0.5", "0.87", "1", "0.707"],
-          answer: 0
-        },
-
-        {
-          q: 'One of the following statements is NOT correct?', options: ['Integers are positive or negative whole numbers', '2, 7, 13, 19, 31, 97 are prime numbers', '√7, √-15, √-18, √15 are real numbers', '0.222, 0.416, √64 are rational numbers', '363, 616, 9845, 27566 are divisible by 11'
-          ], answer: 2
-        },
-        {
-          q: 'Evaluate ((-9)×(-8)×(-2))/(-8+3×6)', options: ['14 3/2', '4 5/4', '14 2/5', '-10 5/1', '-14 5/2'
-          ], answer: 2
-        },
-        {
-          q: 'Simplify 0.87345 + 0.004 to two significant figures',
-          options: ['0.87745', '0.88', '87', '88', '8.8'],
-          answer: 1
-        },
-        {
-          q: '(3/4 + 2) × 5 1/5 ÷ 3 1/4',
-          options: ['4 2/5', '3 1/5', '5 1/5', '46/19', '2 2/5'],
-          answer: 1
-        },
-        {
-          q: 'Express 68464 to three significant figures',
-          options: ['68400', '68460', '68500', '684.64', '685'],
-          answer: 1
-        },
-        {
-          q: 'Evaluate 0.6753 × 100 to two significant figures',
-          options: ['0.0067', '0.0068', '0.068', '67.53', '68'],
-          answer: 4
-        },
-        {
-          q: 'Simplify 3/4 ÷ 2 1/4 × (2 1/2 − 1 3/2)',
-          options: ['7/18', '5/18', '7/15', '1/18', '5/12'],
-          answer: 1
-        },
-
-        {
-          q: 'Which instrument is NOT normally required for geometric construction?',
-          options: ['Compass', 'Ruler', 'Calculator', 'Divider'],
-          answer: 2
-        },
-
-        {
-          q: 'Which tool is used to draw arcs in construction?',
-          options: ['Ruler', 'Compass', 'Protractor', 'Divider'],
-          answer: 1
-        },
-
-        {
-          q: 'The center of a circumcircle is the intersection of:',
-          options: ['Altitudes', 'Medians', 'Perpendicular bisectors', 'Angle bisectors'],
-          answer: 2
-        },
-        {
-          q: 'Which construction divides an angle into two equal parts?',
-          options: ['Perpendicular construction', 'Angle bisector', 'Parallel construction', 'Midpoint construction'],
-          answer: 1
-        },
-        {
-          q: '(110)₂² − (111)₂² equals',
-          options: ['1111000', '10100', '1110', '1111100', '10100'],
-          answer: 2
-        },
-        {
-          q: '12₁₀ converted to base 2 is',
-          options: ['10000', '11000', '1100', '100000', '10100'],
-          answer: 2
-        },
-        {
-          q: 'If 105ₓ = 86, find x',
-          options: ['9', '8', '7', '10', '6'],
-          answer: 1
-        },
-
-        {
-          q: 'If 5X2₁₂ = 75₈, find X',
-          options: ['4', '5', '8', '3', '2'],
-          answer: 0
-        },
-        {
-          q: 'If y = 23₅ + 101₃ find y in base 2',
-          options: ['1110', '10111', '11101', '111100', '100111'],
-          answer: 3
-        },
-        {
-          q: 'Given 101011₂ − P₁₀ = 11101₂, find P',
-          options: ['14', '13', '11', '12', '16'],
-          answer: 3
-        },
-        {
-          q: 'Residues for mod 8 are',
-          options: [
-            '{1,2,3,4,5,7}',
-            '{0,1,2,3,5,6,7}',
-            '{1,2,3,4,5,6,7}',
-            '{0,1,2,3,4,5,6,7,8}',
-            '{0,1,2,3,4,5,6,7}'
-          ],
-          answer: 4
-        },
-        {
-          q: 'Evaluate 25 ⊕ 12 (mod 7)',
-          options: ['1', '2', '3', '4', '5'],
-          answer: 1
-        },
-        {
-          q: 'Simplest positive form of −35 (mod 6)',
-          options: ['1', '0', '4', '2', '3'],
-          answer: 4
-        },
-        {
-          q: '24 ⊗ 34 in mod 5',
-          options: ['3', '5', '2', '1', '4'],
-          answer: 2
-        },
-        {
-          q: 'Find 5 ⦼ 4 (mod 7)',
-          options: ['1,6', '2,3', '3', '5', '0'],
-          answer: 0
-        },
-        {
-          q: 'Find 3 ⦼ 7 (mod 8)',
-          options: ['1', '4', '3', '5', '0'],
-          answer: 4
-        },
-        {
-          q: 'Solve 2x + 3 ≡ 5 (mod 6)',
-          options: ['1 and 4', '2 and 4', '1 and 3', '3 and 4', 'No solution'],
-          answer: 0
-        },
-
-        {
-          q: 'If A = { 1, 2, 3} and B = { 2, 3, 4}, find A ∪ B',
-          options: ['{ 1, 2, 3, 4}', '{ 1, 4}', '{ 2, 3}', '{ 1, 3, 4}', '{}'],
-          answer: 0
-        },
-        {
-          q: 'If A = { 1, 2, 3} and B = { 2, 3, 4}, find A ∩ B',
-          options: ['{ 1, 4}', '{ 2, 3}', '{ 1, 3}', '{}', '{ 1, 2}'],
-          answer: 1
-        },
-        {
-          q: 'A set with no element is called',
-          options: ['Null set', 'Finite set', 'Infinite set', 'Unit set', 'Universal set'],
-          answer: 0
-        },
-        {
-          q: '5⁻¹ is equal to',
-          options: ['-5', '1 / 5', '1 / 25', '0.5', '5'],
-          answer: 1
-        },
-        {
-          q: 'If log₁₀ q = 5, then q is',
-          options: ['5000', '100000', '10000', '500', '50'],
-          answer: 1
-        },
-        {
-          q: 'Simplify 81 ^ (3 / 4) ÷ 27 ^ (-2 / 3)',
-          options: ['3', '9', '243', '93', '1 / 3'],
-          answer: 2
-        },
-        {
-          q: 'Evaluate 0.0013 ÷ 0.016 in standard form(2 s.f.)',
-          options: ['8.1 × 10⁻¹', '8.1 × 10⁻²', '8.1 × 10⁻³', '0.81', '0.081'],
-          answer: 0
-        },
-        {
-          q: 'Which of the following equals 72 / 125 ?',
-          options: [
-            '(2³ × 3²) / 5³',
-            '(2⁴ × 3) / 5³',
-            '(2³ × 3²) / 5⁵',
-            '(2⁴ × 3) / 5⁶',
-            '(2² × 3² × 4²) / 5²'
-          ],
-          answer: 0
-        },
-        {
-          q: 'If U = { 1, 2, 3,…, 10}, M = even numbers and P = prime numbers, find M’ ∩ P',
-          options: ['{ 5}', '{ 2, 8}', '{ 4, 6, 8, 10}', '{}', '{ 3, 5, 7}'],
-          answer: 4
-        },
-        {
-          q: 'The set of residues for modulo 8 is',
-          options: [
-            '{ 1, 2, 3, 4, 5, 7}',
-            '{ 0, 1, 2, 3, 5, 6, 7}',
-            '{ 1, 2, 3, 4, 5, 6, 7}',
-            '{ 0, 1, 2, 3, 4, 5, 6, 7, 8}',
-            '{ 0, 1, 2, 3, 4, 5, 6, 7}'
-          ],
-          answer: 4
-        },
-        {
-          q: '{ } means',
-          options: ['Null set', 'Singleton', 'Subset', 'Complement', 'Universal'],
-          answer: 0
-        },
-        {
-          q: 'log 0 is',
-          options: ['0', '1', 'Undefined', 'Infinity', '10'],
-          answer: 2
-        },
-        {
-          q: 'Convert 274₁₀ to base 2',
-          options: ['101110100', '11011100', '101101100', '111010100', '101111000'],
-          answer: 3
-        },
-        {
-          q: 'In Venn diagram, the universal set is represented by',
-          options: ['Circle', 'Square', 'Rectangle', 'Triangle', 'Line'],
-          answer: 2
-        },
-        {
-          q: 'To show a subset in a Venn diagram, which shape is used ?',
-          options: ['Square', 'Rectangle', 'Circle', 'Triangle', 'None'],
-          answer: 2
-        },
-        {
-          q: 'The decimal part of a logarithm is called',
-          options: ['Character', 'Characteristic', 'Mantissa', 'Mantis', 'Index'],
-          answer: 2
-        },
-        {
-          q: 'The symbol ∈ means',
-          options: ['Set', 'Member of', 'Universal', 'Subset', 'Equal to'],
-          answer: 1
-        },
-        {
-          q: 'Two sets with no common elements are called',
-          options: ['Empty sets', 'Joint sets', 'Null sets', 'Disjoint sets', 'Equal sets'],
-          answer: 3
-        },
-        {
-          q: '144(mod 12) is',
-          options: ['11', '12', '0', '1', '144'],
-          answer: 2
-        },
-        {
-          q: 'logₐ(a³) is equal to',
-          options: ['a³', '3', '3a', '1 / 3', 'a'],
-          answer: 1
-        },
-        {
-          q: 'What is the value of sin 30°?',
-          options: ['0.5', '0.87', '1', '0.707'],
-          answer: 0
-        },
-        {
-          q: 'In a right- angled triangle, which ratio is defined as opposite / hypotenuse ?',
-          options: ['Sine', 'Cosine', 'Tangent', 'Secant'],
-          answer: 0
-        },
-        {
-          q: 'If tan θ = 1, what is the value of θ?',
-          options: ['30°', '45°', '60°', '90°'],
-          answer: 1
-        },
-        {
-          q: 'What is the ratio for cos θ in a right- angled triangle ?',
-          options: ['Opposite / Hypotenuse', 'Adjacent / Hypotenuse', 'Opposite / Adjacent', 'Hypotenuse / Opposite'],
-          answer: 1
-        },
-        {
-          q: 'If a triangle has an angle of 60°, what is the sin of that angle ?',
-          options: ['1', '0.5', '√3 / 2', '√2 / 2'],
-          answer: 2
-        },
-        {
-          q: 'Which of the following is NOT a trigonometric ratio?',
-          options: ['Sine', 'Cosine', 'Logarithm', 'Tangent'],
-          answer: 2
-        },
-        {
-          q: 'In a right triangle, a = 5 cm, b = 12 cm.Find c.',
-          options: ['10 cm', '13 cm', '17 cm', '7 cm'],
-          answer: 1
-        },
-        {
-          q: 'The Pythagorean theorem is expressed as',
-          options: ['a² = b² + c²', 'a² + b² = c²', 'a = b + c', 'a² − b² = c²'],
-          answer: 1
-        },
-        {
-          q: 'If the hypotenuse is 10 cm and one side is 6 cm, find the other side.',
-          options: ['4 cm', '8 cm', '6 cm', '12 cm'],
-          answer: 1
-        },
-        {
-          q: 'Which side is the hypotenuse in a right- angled triangle ?',
-          options: ['The shortest side', 'The side opposite the right angle', 'Any side', 'The vertical side'],
-          answer: 1
-        },
-        {
-          q: 'Find the diagonal of a rectangle with sides 9 cm and 12 cm.',
-          options: ['21 cm', '15 cm', '10.5 cm', '7.5 cm'],
-          answer: 1
-        },
-        {
-          q: 'What is the exact value of sin 45°?',
-          options: ['1', '√2 / 2', '√(3 / 2)', '0'],
-          answer: 1
-        },
-        {
-          q: 'What is tan 30°?',
-          options: ['√(1 / 3)', '√3/3', '1', '0'],
-          answer: 1
-        },
-        {
-          q: 'sin 60° is equal to',
-          options: ['√(2 / 2)', '√(1 / 2)', '√(3 / 2)', '0'],
-          answer: 2
-        },
-        {
-          q: 'Which trigonometric ratio is √(3 / 2) for 60°?',
-          options: ['Sine', 'Cosine', 'Tangent', 'Secant'],
-          answer: 0
-        },
-        {
-          q: 'What is the cosine of 45° in surd form ?',
-          options: ['√2 / 2', '√(3 / 2)', '1 / 2', '1'],
-          answer: 0
-        },
-        {
-          q: 'What is the perimeter of a square of side 5 cm ?',
-          options: ['10 cm', '20 cm', '25 cm', '15 cm'],
-          answer: 1
-        },
-        {
-          q: 'The area of a triangle is',
-          options: ['base × height', '½ × base × height', 'length × breadth', '2 × (l + b)'],
-          answer: 1
-        },
-        {
-          q: 'A rectangle has length 8 cm and breadth 4 cm.Find its area.',
-          options: ['12 cm²', '32 cm²', '24 cm²', '16 cm²'],
-          answer: 1
-        },
-        {
-          q: 'A circle has radius 7 cm.Find its perimeter(π = 22 / 7).',
-          options: ['44 cm', '154 cm', '49 cm', '28 cm'],
-          answer: 0
-        },
-        {
-          q: 'The area of a circle is',
-          options: ['πd', 'πr²', '2πr', 'πr'],
-          answer: 1
-        },
-        {
-          q: 'What is the area of a square with diagonal 10 cm ?',
-          options: ['50 cm²', '100 cm²', '25 cm²', '75 cm²'],
-          answer: 0
-        },
-        {
-          q: 'A parallelogram has base 12 cm and height 5 cm.Find its area.',
-          options: ['60 cm²', '30 cm²', '17 cm²', '12 cm²'],
-          answer: 0
-        },
-        {
-          q: 'What is the perimeter of a triangle with sides 4 cm, 5 cm and 6 cm ?',
-          options: ['15 cm', '16 cm', '18 cm', '20 cm'],
-          answer: 0
-        },
-        {
-          q: 'The area of a trapezium is',
-          options: ['½ × (sum of parallel sides) × height', 'base × height', '2 × base × height', 'height × width'],
-          answer: 0
-        },
-        {
-          q: 'A polygon with 5 sides is called',
-          options: ['Hexagon', 'Pentagon', 'Octagon', 'quadrilateral'],
-          answer: 1
-        },
-        {
-          q: 'How many sides does a decagon have ?',
-          options: ['8', '10', '12', '6'],
-          answer: 1
-        },
-        {
-          q: 'The sum of interior angles of a triangle is',
-          options: ['180°', '360°', '90°', '270°'],
-          answer: 0
-        },
-        {
-          q: 'The formula for sum of interior angles of a polygon is',
-          options: ['(n – 1) × 180°', '(n + 2) × 180°', '(n – 2) × 180°', 'n × 180°'],
-          answer: 2
-        },
-        {
-          q: 'A regular polygon has interior angle 120°. How many sides does it have ?',
-          options: ['3', '6', '8', '12'],
-          answer: 1
-        },
-
-        {
-          q: 'Which instrument is NOT normally required for geometric construction?',
-          options: ['Compass', 'Ruler', 'Calculator', 'Divider'],
-          answer: 2
-        },
-
-        {
-          q: 'Which tool is used to draw arcs in construction?',
-          options: ['Ruler', 'Compass', 'Protractor', 'Divider'],
-          answer: 1
-        },
-
-        {
-          q: 'The center of a circumcircle is the intersection of:',
-          options: ['Altitudes', 'Medians', 'Perpendicular bisectors', 'Angle bisectors'],
-          answer: 2
-        },
-        {
-          q: 'Which construction divides an angle into two equal parts?',
-          options: ['Perpendicular construction', 'Angle bisector', 'Parallel construction', 'Midpoint construction'],
-          answer: 1
-        },
-        {
-          q: 'To construct a 90° angle without a protractor, you can use:',
-          options: ['Compass and ruler', 'Ruler only', 'Divider only', 'None of the above'],
-          answer: 0
-        },
-        {
-          q: 'To construct a 30° angle using a compass, you first construct:',
-          options: ['60° angle', '90° angle', '45° angle', '120° angle'],
-          answer: 0
-        },
-
-        {
-          q: 'An angle bisector divides an angle into:',
-          options: ['Two equal angles', 'Two complementary angles', 'Two obtuse angles', 'Two reflex angles'],
-          answer: 0
-        },
-
-        {
-          q: 'The center of an inscribed circle is intersection of:',
-          options: ['Altitudes', 'Medians', 'Angle bisectors', 'Perpendicular bisectors'],
-          answer: 2
-        },
-        {
-          q: 'Which instrument is NOT normally required for geometric construction?',
-          options: ['Compass', 'Ruler', 'Calculator', 'Divider'],
-          answer: 2
-        },
-
-        {
-          q: 'Which tool is used to draw arcs in construction?',
-          options: ['Ruler', 'Compass', 'Protractor', 'Divider'],
-          answer: 1
-        },
-
-        {
-          q: 'The center of a circumcircle is the intersection of:',
-          options: ['Altitudes', 'Medians', 'Perpendicular bisectors', 'Angle bisectors'],
-          answer: 2
-        },
-        {
-          q: 'Which construction divides an angle into two equal parts?',
-          options: ['Perpendicular construction', 'Angle bisector', 'Parallel construction', 'Midpoint construction'],
-          answer: 1
-        },
-      ];
-
-      let questions = [];
-      let studentSubject = "";
-      let index = 0;
-      let score = 0;
-      let answers = [];
-      let time = 3000; // 50 minutes
-      let warned = false;
-      let timerInterval;
-      let regNo = "";
-      let remarks = "";
-
-      // student login credentials
-      const students = [
-
-        // SS1
-        { regNo: "AMOS/2026/PHY/4049", surname: "ABDULAZEEZ", grade: "SS1" },
-        { regNo: "AMOS/2026/PHY/2601", surname: "ABDULRASAQ", grade: "SS1" },
-        { regNo: "AMOS/2026/PHY/3748", surname: "ADIGUN", grade: "SS1" },
-        { regNo: "AMOS/2026/PHY/3578", surname: "AFOLAYAN", grade: "SS1" },
-        { regNo: "AMOS/2026/PHY/2906", surname: "AYANKEYE", grade: "SS1" },
-        { regNo: "AMOS/2026/PHY/4251", surname: "ISMAIL", grade: "SS1" },
-        { regNo: "AMOS/2026/PHY/3732", surname: "LAWAL", grade: "SS1" },
-        { regNo: "AMOS/2026/PHY/3267", surname: "OLAREWAJU", grade: "SS1" },
-        { regNo: "AMOS/2026/PHY/2712", surname: "OLATUNJI", grade: "SS1" },
-        { regNo: "AMOS/2026/PHY/2307", surname: "ONISABI", grade: "SS1" },
-        { regNo: "AMOS/2026/PHY/2571", surname: "SULAIMON", grade: "SS1" },
-        { regNo: "AMOS/2026/PHY/2427", surname: "YUSUF", grade: "SS1" },
-        { regNo: "AMOS/2026/PHY/4193", surname: "ABDULGANIYY", grade: "SS1" },
-        { regNo: "AMOS/2026/PHY/3864", surname: "AYANKEYE", grade: "SS1" },
-        { regNo: "AMOS/2026/PHY/3004", surname: "AYANKEYE", grade: "SS1" },
-        { regNo: "AMOS/2026/PHY/2581", surname: "AYODELE", grade: "SS1" },
-        { regNo: "AMOS/2026/PHY/3400", surname: "BOLARINWA", grade: "SS1" },
-        { regNo: "AMOS/2026/PHY/0018", surname: "MUFTAU", grade: "SS1" },
-
-        // SS2
-        { regNo: "AMOS/2026/PHY/5411", surname: "ABDULAZEEZ", grade: "SS2" },
-        { regNo: "AMOS/2026/PHY/5838", surname: "ABDULRAHEEM", grade: "SS2" },
-        { regNo: "AMOS/2026/PHY/4062", surname: "OLADIMEJI", grade: "SS2" },
-        { regNo: "AMOS/2026/PHY/3054", surname: "OLASENI", grade: "SS2" },
-        { regNo: "AMOS/2026/PHY/5157", surname: "OLOYEDE", grade: "SS2" },
-        { regNo: "AMOS/2026/PHY/4593", surname: "SOLADOYE", grade: "SS2" },
-        { regNo: "AMOS/2026/PHY/3561", surname: "MUSTAPHA", grade: "SS2" },
-        { regNo: "AMOS/2026/PHY/4201", surname: "ADEBAYO", grade: "SS2" },
-        { regNo: "AMOS/2026/PHY/4456", surname: "AYANDELE", grade: "SS2" },
-        { regNo: "AMOS/2026/PHY/4462", surname: "MUSTAPHA", grade: "SS2" },
-        { regNo: "AMOS/2026/PHY/0019", surname: "MUFTAU", grade: "SS2" },
-
-
-      ];
-
-
-      function proceed() {
-        document.getElementById('instructions').classList.add('hidden');
-        document.getElementById('login').classList.remove('hidden');
-      }
-
-      function startExam() {
-        const regNo = document.getElementById('regNo').value.trim();
-        const surname = document.getElementById('surname').value.trim();
-        const studentClass = document.getElementById('grade').value.trim();
-        const subject = document.getElementById('subject').value;
-        const name = document.getElementById('name').value.trim();
-
-
-
-        // Prevent refresh or tab close during exam
-        window.onbeforeunload = function () {
-          return "Exam in progress. Leaving will cancel your attempt.";
-        };
-
-        // BLOCK multiple attempts
-        if (localStorage.getItem("CBT_" + regNo)) {
-          alert("You have already taken this exam.");
-          return;
-        }
-
-
-        // Check login
-        const student = students.find(
-          s => s.regNo === regNo && s.surname.toLowerCase() === surname.toLowerCase() && s.grade === studentClass
-        );
-
-        studentSubject = document.getElementById('subject').value;
-
-        if (!student) {
-          alert("Invalid Registration Number or Surname or Class");
-          return;
-        }
-        if (!studentClass || !subject) {
-          alert("Please fill Class and Subject");
-          return;
-        }
-        if (!name) {
-          alert("Please fill fullname");
-          return;
-        }
-
-        document.getElementById('candidate').innerText = `${name.toUpperCase()} - ${studentClass} - ${subject}`;
-
-        if (subject === "PHYSICS") {
-          questions = physicsQuestions;
-        } else if (subject === "MATHEMATICS") {
-          questions = mathsQuestions;
-        }
-
-        index = 0;
-        answers = new Array(questions.length).fill(null);
-
-        questions = questions.sort(() => 0.5 - Math.random()).slice(0, 50);
-
-        document.getElementById('login').classList.add('hidden');
-        document.getElementById('exam').classList.remove('hidden');
-
-
-        time = 50 * 60;
-
-        renderPalette();
-        loadQuestion();
-
-        clearInterval(timerInterval);
-        updateTimer();
-        timerInterval = setInterval(updateTimer, 400);
-      }
-
-
-      function loadQuestion() {
-        const q = questions[index];
-        let html = `<div class='question'><h3>Question ${index + 1} of ${questions.length}</h3><p>${q.q}</p>`;
-
-        if (q.img) {
-          html += `<img src="${q.img}" class="qimg">`;
-        }
-        html += `<div class='options'>`;
-        q.options.forEach((opt, i) => {
-          html += `<label><input type='radio' name='opt' ${answers[index] == i ? 'checked' : ''} onchange='answers[${index}]=${i}; updatePalette(${index})'> ${opt}</label>`;
-        });
-        html += `</div></div>`;
-        document.getElementById('questionBox').innerHTML = html;
-        highlightCurrent();
-      }
-
-      function renderPalette() {
-        let p = '';
-        questions.forEach((_, i) => {
-          p += `<button id='box${i}' onclick='goTo(${i})' style='padding:8px;border-radius:4px;border:1px solid #999;background:#000052' class='box'>${i + 1}</button>`;
-        });
-        document.getElementById('palette').innerHTML = p;
-      }
-
-      function updatePalette(i) {
-        document.getElementById('box' + i).style.background = '#81c784';
-      }
-
-      function highlightCurrent() {
-        questions.forEach((_, i) => {
-          document.getElementById('box' + i).style.border = i === index ? '2px solid #1e88e5' : '1px solid #999';
-        });
-      }
-
-      function goTo(i) { index = i; loadQuestion(); }
-
-      function nextQ() { if (index < questions.length - 1) { index++; loadQuestion(); } }
-      function prevQ() { if (index > 0) { index--; loadQuestion(); } }
-
-      function submitExam() {
-
-        // Allow page unload after submission
-        window.onbeforeunload = null;
-
-        const confirmSubmit = confirm("Are you sure you want to submit?");
-
-        if (!confirmSubmit) {
-          return;
-        }
-
-        clearInterval(timer);
-        score = 0;
-        questions.forEach((q, i) => { if (answers[i] === q.answer) score++; });
-
-
-
-        // let percent = (score / questions.length) * 100;
-
-        let remark = "";
-
-
-        if (score >= 30) {
-          remark = "PASSED";
-        } else if (score >= 25) {
-          remark = "AVERAGE";
-        } else {
-          remark = "FAILED";
-        }
-
-
-
-        document.getElementById('exam').classList.add('hidden');
-        document.getElementById('result').classList.remove('hidden');
-
-        // Get student info from inputs
-        const regNo = document.getElementById('regNo') ? document.getElementById('regNo').value : '';
-        const name = document.getElementById('name') ? document.getElementById('name').value : '';
-        const className = document.getElementById('grade') ? document.getElementById('grade').value : '';
-        const subject = document.getElementById('subject') ? document.getElementById('subject').value : '';
-
-
-        // Fill table cells
-        document.getElementById('rName').innerText = name || 'Student';
-        document.getElementById('rRegNo').innerText = regNo || 'N/A';
-        document.getElementById('rClass').innerText = className || 'N/A';
-        document.getElementById('rSubject').innerText = studentSubject || 'N/A';
-        document.getElementById('rScore').innerText = score;
-        document.getElementById('rTotal').innerText = questions.length;
-        const remarkCell = document.getElementById("rRemark");
-        remarkCell.textContent = remark;
-
-        if (remark === "FAILED") {
-          remarkCell.style.color = "red";
-        }
-        else if (remark === "AVERAGE") {
-          remarkCell.style.color = "blue";
-        }
-        else if (remark === "PASSED") {
-          remarkCell.style.color = "green";
-        }
-        remarkCell.style.fontWeight = "bold";
-        remarkCell.style.fontSize = "18px";
-        // Mark exam as submitted for this reg number
-        localStorage.setItem("CBT_" + regNo, "submitted");
-
-
-      }
-
-      function updateTimer() {
-        let m = Math.floor(time / 60);
-        let s = time % 60;
-
-        document.getElementById('timer').innerText =
-          `${m}mins:${s < 10 ? '0' + s : s}secs`;
-
-        // Change to red when below 1 minute
-        if (time <= 60) {
-          timer.classList.add("danger");
-          // Alert only once
-          if (!warned) {
-            alert("⚠️ 1 minute remaining!");
-            warned = true;
-          }
-
-        } else {
-          timer.classList.remove("danger");
-        }
-
-        if (time <= 0) {
-          clearInterval(timerInterval);
-          submitExam();
-          return;
-        }
-
-        time--;
-      }
-
-
-
-
-    </script>
-    <script src="jspdf.umd.min.js"></script>
-    <script src="jspdf.plugin.autotable.min.js"></script>
-    <script>
-
-
-      function downloadPDF() {
-        const { jsPDF } = window.jspdf;
-
-        const doc = new jsPDF({
-          orientation: "l",
-          unit: "mm",
-          format: [220,170]
-        });
-
-        const logoImg = document.getElementById("schoolLogo");
-
-        if (!logoImg || !logoImg.complete) {
-          alert("School logo not loaded yet. Please refresh the page.");
-          return;
-        }
-
-
-        // Get values from your page
-        const name = document.getElementById('rName').innerText;
-        const reg = document.getElementById('rRegNo').innerText;
-        const score = document.getElementById('rScore').innerText;
-        const total = document.getElementById('rTotal').innerText;
-        const lass = document.getElementById('rClass').innerText;
-        const subject = document.getElementById('rSubject').innerText;
-        const remark = document.getElementById('rRemark').textContent;
-
-        // Top logo
-        doc.addImage(logoImg, "PNG", 90, 5, 30, 30);
-
-
-        // * ========= WATERMARK ========= */
-        doc.setGState(new doc.GState({ opacity: 0.12 }));
-        doc.addImage(logoImg, "PNG", 50, 60, 120, 120);
-        doc.setGState(new doc.GState({ opacity: 1 }));
-
-
-        // Header
-        doc.setFontSize(18);
-        doc.setFont("helvetica", "bold");
-        doc.setTextColor(0, 51, 102);
-        doc.text('YOUR FIRST C.A RESULT', 105, 50, { align: "center" });
-
-        // Table data
-        const tableData = [
-          ["Candidate Name", name],
-          ["Reg No", reg],
-          ["Class", lass],
-          ["Subject", subject],
-          ["Score", `${score} / ${total}`],
-          ["Percentage", `${((score / total) * 100).toFixed(2)}%`],
-          ["Remarks", remark],
-          ["Date", new Date().toLocaleString()]
+        const prefects = [
+            {
+                name: "Sulaimon Mujaheed",
+                class: "SS1",
+                post: "Senior Prefect Boy",
+                img: "logo.png"
+            },
+            {
+                name: "Ayandele Yusroh",
+                class: "SS2",
+                post: "Senior Prefect Girl",
+                img: "logo.png"
+            },
+            {
+                name: "Oladejo Hassan",
+                class: "JSS3",
+                post: "Assitant Senior Prefect Boy",
+                img: "logo.png"
+            },
+            {
+                name: "Ayankeye Fawaz",
+                class: "SS1",
+                post: "Sport Prefect",
+                img: "logo.png"
+            },
+            {
+                name: "Oloyede Mubarak",
+                class: "SS2",
+                post: "Laboratory Prefect",
+                img: "logo.png"
+            },
+            {
+                 name: "Bolarinwa Faridah",
+                class: "SS1",
+                post: "Laboratory Prefect",
+                img: "logo.png"
+            }
         ];
 
-        // Add table
-        doc.autoTable({
+        // Get week number
+        function getWeekNumber() {
+            const now = new Date();
+            const start = new Date(now.getFullYear(), 0, 1);
+            return Math.floor((now - start) / (1000 * 60 * 60 * 24 * 7));
+        }
 
-          startY: 55,
-          head: [["Field", "Details"]],
-          body: tableData,
-          theme: "grid",
+        // Shuffle based on week (stable random)
+        function getWeeklyPrefects() {
+            const week = getWeekNumber();
 
-          headStyles: {
-            fillColor: [0, 51, 102],
-            textColor: 255,
-            fontStyle: "bold"
-          },
+            const shuffled = [...prefects].sort((a, b) => {
+                return (a.name.length + week) - (b.name.length + week);
+            });
 
-          styles: {
-            fontSize: 10,
-            cellPadding: 3,
-            fillColor: false,   // NO background
-            textColor: 0
-          },
+            return shuffled.slice(0, 2);
+        }
 
-          bodyStyles: {
-            fillColor: false   // Transparent body
-          },
+        // Display prefects
+        function displayPrefects() {
+            const container = document.getElementById("prefectContainer");
+            const selected = getWeeklyPrefects();
 
-          alternateRowStyles: {
-            fillColor: false   // No zebra striping
-          },
+            container.innerHTML = "";
 
-          didParseCell: function (data) {
+            selected.forEach(prefect => {
+                const div = document.createElement("div");
+                div.className = "profile";
 
-            // only affect BODY cells (not header)
-            if (data.section === "body") {
+                div.innerHTML = `
+            <div><img src="${prefect.img}"></div>
+            <table>
+                <tr><td>NAME</td><td>${prefect.name}</td></tr>
+                <tr><td>CLASS</td><td>${prefect.class}</td></tr>
+                <tr><td>POST HELD</td><td>${prefect.post}</td></tr>
+            </table>
+        `;
 
-              // check first column label = Remarks
-              if (data.row.cells[0].raw === "Remarks") {
-
-                const value = data.cell.raw.toString().toLowerCase();
-
-                if (value === "failed")
-                  data.cell.styles.textColor = [255, 0, 0];
-
-                else if (value === "average")
-                  data.cell.styles.textColor = [0, 0, 255];
-
-                else if (value === "passed")
-                  data.cell.styles.textColor = [0, 128, 0];
-
-                data.cell.styles.fontStyle = "bold";
-              }
-            }
-          },
-
-
-          margin: { left: 10, right: 10 }
-        });
-
-        // COPYRIGHT
-            doc.setFontSize(11);
-            doc.setTextColor(0, 0, 0);
-            doc.text("© 2026 Horlanif Tech. All Rights Reserved.", 105, 150, { align: "center" });
-
-
-        // Save PDF
-        doc.save(`${name.replace(/\s+/g, "_")}_${subject.replace(/\s+/g, "_")}_${lass.replace(/\s+/g, "_")}.pdf`);
-
-      };
-
-
-
+                container.appendChild(div);
+            });
+        }
+        displayPrefects();
     </script>
 
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
+        const slides = document.querySelector(".slides");
+        const slide = document.querySelectorAll(".slide");
+        const dotsContainer = document.querySelector(".dots");
 
-        const openBtn = document.getElementById("openCalc");
-        const closeBtn = document.getElementById("closeCalc");
-        const calcBox = document.getElementById("calcBox");
+        let index = 0;
 
-        if (openBtn && closeBtn && calcBox) {
-          openBtn.onclick = function () {
-            calcBox.style.display = "block";
-          };
+        // Create dots
+        slide.forEach((_, i) => {
+            let dot = document.createElement("span");
+            dotsContainer.appendChild(dot);
+        });
 
-          closeBtn.onclick = function () {
-            calcBox.style.display = "none";
-          };
+        const dots = document.querySelectorAll(".dots span");
+
+        // Show slide
+        function showSlide() {
+            slides.style.transform = `translateX(-${index * 100}%)`;
+
+            dots.forEach(dot => dot.classList.remove("active"));
+            dots[index].classList.add("active");
         }
 
-      });
+        // Auto loop
+        setInterval(() => {
+            index++;
+
+            if (index >= slide.length) {
+                index = 0; // go back to first slide
+            }
+
+            showSlide();
+        }, 3000);
+
+        // Init
+        showSlide();
     </script>
 
+    <script>
+        const menuBtn = document.getElementById("menu-btn");
+        const closeBtn = document.getElementById("close-btn");
+        const sidebar = document.querySelector(".sidebar");
 
+        // Open sidebar
+        menuBtn.addEventListener("click", () => {
+            sidebar.classList.add("active");
+        });
 
+        // Close sidebar
+        closeBtn.addEventListener("click", () => {
+            sidebar.classList.remove("active");
+        });
+    </script>
 </body>
 
 </html>
