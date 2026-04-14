@@ -75,7 +75,7 @@
                     Science,English and Humanities</h2>
             </div>
             <div class="feat-01">
-                <img src="images/book.png">
+                <img src="images/mosque.png">
                 <h1>ARABIC CURRICULUM</h1>
                 <hr>
                 <h2>In-depth Arabic, Qur'an, and <br>
@@ -95,7 +95,7 @@
                     Character Building</h2>
             </div>
             <div class="feat-01">
-                <img src="images/book.png">
+                <img src="images/qur'an.png">
                 <h1>TAHFIZ PROGRAMME</h1>
                 <hr>
                 <h2>Qur'an Memorization with <br>
@@ -194,7 +194,7 @@
     </section>
 
     <section class="prefect">
-        <h2>Prefects of the Week</h2>
+        <h2>Prefects of the Day</h2>
         <div class="sect" id="prefectContainer">
             <div class="profile">
                 <div><img src="logo.png"></div>
@@ -264,21 +264,57 @@
                 img: "logo.png"
             },
             {
-                name: "Ayandele Yusroh",
-                class: "SS2",
-                post: "Senior Prefect Girl",
-                img: "logo.png"
-            },
-            {
                 name: "Oladejo Hassan",
                 class: "JSS3",
                 post: "Assitant Senior Prefect Boy",
                 img: "logo.png"
             },
             {
+                name: "Ayandele Yusroh",
+                class: "SS2",
+                post: "Senior Prefect Girl",
+                img: "logo.png"
+            },
+            {
+                name: "Adebayo Zainab",
+                class: "SS2",
+                post: "Assitant Senior Prefect Girl",
+                img: "logo.png"
+            },
+            {
+                name: "Ayankeye Rodiyah",
+                class: "SS1",
+                post: "Labour Prefect Girl",
+                img: "logo.png"
+            },
+            {
                 name: "Ayankeye Fawaz",
                 class: "SS1",
-                post: "Sport Prefect",
+                post: "Sport Prefect Boy",
+                img: "logo.png"
+            },
+            {
+                name: "Afolabi Balikis",
+                class: "JSS3",
+                post: "Sport Prefect Girl",
+                img: "logo.png"
+            },
+            {
+                name: "Olarewaju Yusuf",
+                class: "SS1",
+                post: "Health Prefect Boy",
+                img: "logo.png"
+            },
+             {
+                name: "Ibrahim Sofiyyah",
+                class: "JSS3",
+                post: "Social Prefect",
+                img: "logo.png"
+            },
+            {
+                name: "Ayodele Rodiyah",
+                class: "SS1",
+                post: "Assit. Social Prefect",
                 img: "logo.png"
             },
             {
@@ -292,31 +328,50 @@
                 class: "SS1",
                 post: "Laboratory Prefect",
                 img: "logo.png"
-            }
+            },
+            {
+                name: "Adigun Yusuf",
+                class: "SS1",
+                post: "Chapel Prefect Boy",
+                img: "logo.png"
+            },
+             {
+                name: "Abdulganiy Azeezat",
+                class: "SS1",
+                post: "Chapel Prefect Girl",
+                img: "logo.png"
+            },
         ];
 
-        // Get week number
-        function getWeekNumber() {
-            const now = new Date();
-            const start = new Date(now.getFullYear(), 0, 1);
-            return Math.floor((now - start) / (1000 * 60 * 60 * 24 * 7));
+        // FORMAT NAME (clean sentence case)
+        function formatName(name) {
+            return name
+                .toLowerCase()
+                .split(" ")
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(" ");
         }
 
-        // Shuffle based on week (stable random)
-        function getWeeklyPrefects() {
-            const week = getWeekNumber();
+        // GET DAILY INDEX (changes every day)
+        function getDayNumber() {
+            return Math.floor(Date.now() / (1000 * 60 * 60 * 24));
+        }
+
+        // SELECT PREFECTS FOR THE DAY
+        function getDailyPrefects() {
+            const day = getDayNumber();
 
             const shuffled = [...prefects].sort((a, b) => {
-                return (a.name.length + week) - (b.name.length + week);
+                return (a.name.length + day) - (b.name.length + day);
             });
 
             return shuffled.slice(0, 2);
         }
 
-        // Display prefects
+        // DISPLAY PREFECTS
         function displayPrefects() {
             const container = document.getElementById("prefectContainer");
-            const selected = getWeeklyPrefects();
+            const selected = getDailyPrefects();
 
             container.innerHTML = "";
 
@@ -325,17 +380,29 @@
                 div.className = "profile";
 
                 div.innerHTML = `
-            <div><img src="${prefect.img}"></div>
+            <div>
+                <img src="${prefect.img}" alt="Prefect Image">
+            </div>
+
             <table>
-                <tr><td>NAME</td><td>${prefect.name}</td></tr>
-                <tr><td>CLASS</td><td>${prefect.class}</td></tr>
-                <tr><td>POST HELD</td><td>${prefect.post}</td></tr>
+                <tr>
+                    <td>NAME</td>
+                    <td>${formatName(prefect.name)}</td>
+                </tr>
+                <tr>
+                    <td>CLASS</td>
+                    <td>${prefect.class}</td>
+                </tr>
+                <tr>
+                    <td>POST HELD</td>
+                    <td>${prefect.post}</td>
+                </tr>
             </table>
         `;
-
                 container.appendChild(div);
             });
         }
+        // RUN ON PAGE LOAD
         displayPrefects();
     </script>
 

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
+    box-sizing: border-box;
     font-family: "Poppins";
     user-select: none;
 }
@@ -8,7 +9,8 @@
 body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    overflow-x: hidden;
+
 }
 
 nav {
@@ -17,7 +19,7 @@ nav {
     justify-content: space-between;
     background: linear-gradient(to right, #b03060, #800020, #b03060);
     width: 100%;
-    /* position: fixed; */
+    position: fixed;
     padding-left: 10px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
     z-index: 1500;
@@ -223,18 +225,21 @@ nav a {
     margin: auto;
     width: 90%;
     text-align: center;
-    /* margin-right: 50px; */
+
 }
 
 .feat-01 {
     border: 3px solid white;
     border-radius: 12px;
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+    grid-template-rows: auto 1fr auto;
+    
 }
 
 .feat-01 img {
     height: 100px;
     width: auto;
+    
 }
 
 .feat-01 h1 {
@@ -244,13 +249,12 @@ nav a {
 
 .feat-01 h2 {
     font-size: 12px;
-    font-weight: 300;
+    font-weight: 400;
+    
 }
 
 .ant {
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-bottom: 20px;
+    margin-left: 20px 10px;
 }
 
 .ant h1 {
@@ -265,17 +269,24 @@ nav a {
     display: flex;
     justify-content: space-around;
 }
-
+.stan-01, .stan-02, .stan-03{
+    text-align: center;
+}
 .coming {
-    margin-bottom: 20px;
     display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    margin: 0 auto;
+    padding: 0 10px;
     width: 100%;
-    justify-content: space-evenly;
+
 }
 
-
-.news {
-    margin-right: 150px;
+.vid iframe {
+    height: auto;
+    width: 100%;
 }
 
 .first {
@@ -329,10 +340,11 @@ nav a {
 }
 
 .sect {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    margin-left: 200px;
-    margin-right: 20px;
+    display: flex;
+    gap: 20px;
+    margin: 0 auto;
+    padding: 0 10px;
+    justify-content: space-around;
 }
 
 .profile {
@@ -342,6 +354,8 @@ nav a {
     border-radius: 10px;
     position: relative;
     max-width: 400px;
+    width: 100%;
+    margin:0 auto;
     gap: 30px;
     z-index: 50;
 
@@ -374,12 +388,11 @@ nav a {
 }
 
 footer {
-    margin-top: 20px;
+    margin: 20px 10px;
+    width: auto;
     background: linear-gradient(to right, #b03060, #800020, #b03060);
     border-radius: 10px;
     justify-content: center;
-    margin-left: 50px;
-    margin-right: 10px;
 }
 
 .emblem {
@@ -422,23 +435,23 @@ footer {
         display: block !important;
         font-size: 24px;
         cursor: pointer;
-        margin-right: 55px;
+        margin-right: 20px;
 
     }
 
     .caption-01 {
         position: absolute;
-        font-size: 40px;
-        left: 20%;
+        font-size: 30px;
+        left: 10%;
         top: 40%;
     }
 
     .feat {
         display: grid;
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: 1fr;
         text-align: center;
         align-items: center;
-        max-width: 400px;
+        max-width: 100%;
     }
 
 
@@ -453,20 +466,20 @@ footer {
         padding: 20px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: center;
         gap: 10px;
         flex-wrap: wrap;
-        max-width: 350px;
+        max-width: 100%;
     }
 
     .coming {
         margin-bottom: 20px;
+        padding: 0 10px;
         display: flex;
         flex-direction: column;
-        margin-left: 50px;
         flex-wrap: wrap;
         justify-content: center;
-        max-width: 400px;
+        max-width: 100%;
     }
 
     .coming .news,
@@ -475,24 +488,31 @@ footer {
     }
 
     .vid iframe {
-        width: 400px;
+        width: 100%;
+        height: auto;
     }
 
     .sect {
         display: flex;
         flex-direction: column;
         gap: 20px;
-        margin-left: 50px;
+        margin: 0;
+        padding: 0 10px;
+        justify-content: center;
+        width: 100%;
     }
 
     footer {
-        max-width: 400px;
+        max-width: 100%;
+        margin: 10px;
 
     }
 
     .emblem {
         display: flex;
         flex-direction: column;
+        align-items: center;
+        text-align: center;
 
     }
 
