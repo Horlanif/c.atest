@@ -8,10 +8,11 @@
   <title>FIRST C.A TEST</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
 </head>
 
 <body>
-
+  <script src="script.js"></script>
   <div class="container">
 
     <!---- INSTRUCTIONS------->
@@ -58,8 +59,11 @@
       <label style="--i:5">Select Subject</label>
       <select id="subject" required style="--i:5">
         <option value="">-- Select Subject --</option>
-        <option value="PHYSICS">Physics</option>
-        <!-- <option value="MATHEMATICS">Mathematics</option> -->
+        <option value="ss1physics">Physics-SS1</option>
+        <option value="ss1maths">Mathematics-SS1</option>
+        <option value="ss2physics">Physics-SS2</option>
+        <option value="ss2maths">Mathematics-SS2</option>
+
       </select>
 
       <br><br>
@@ -129,1224 +133,6 @@
     <img id="schoolLogo" src="logo.png" style="display:none;">
 
     <script>
-      const physicsQuestions = [
-         {
-         q: "The unit of specific heat capacity is:",
-         options: ["J/kg", "J/kg°C", "kg/J", "°C/kg"],
-         answer: 1
-        },
-        {
-          q: "The quantity of heat absorbed is calculated using:",
-          options: ["Q = mc", "Q = mct", "Q = mcΔT", "Q = mt"],
-          answer: 2
-        },
-        {
-          q: "If mass increases, heat required will:",
-          options: ["Decrease", "Remain constant", "Increase", "Become zero"],
-          answer: 2
-        },
-        {
-          q: "Water is used in car radiators because it has:",
-          options: ["Low density", "High boiling point", "High specific heat capacity", "Low melting point"],
-          answer: 2
-        },
-        {
-          q: "Which has the highest specific heat capacity?",
-          options: ["Copper", "Iron", "Aluminium", "Water"],
-          answer: 3
-        },
-        {
-          q: "Evaporation occurs:",
-          options: ["At boiling point only", "At all temperatures", "At 0°C", "Only in sunlight"],
-          answer: 1
-        },
-        {
-          q: "Boiling takes place:",
-          options: ["Only at surface", "Throughout the liquid", "Only in cold liquid", "Without heating"],
-          answer: 1
-        },
-        {
-          q: "During boiling, temperature:",
-          options: ["Increases", "Decreases", "Remains constant", "Fluctuates"],
-          answer: 2
-        },
-        {
-          q: "Evaporation causes cooling because:",
-          options: ["Cold molecules escape", "Fast molecules escape", "Water freezes", "Heat is destroyed"],
-          answer: 1
-        },
-        {
-          q: "Which increases evaporation?",
-          options: ["High humidity", "Low temperature", "Large surface area", "Closed container"],
-          answer: 2
-        },
-        {
-          q: "Water boils lower on mountains because:",
-          options: ["Gravity less", "Atmospheric pressure low", "Temperature high", "Air heavy"],
-          answer: 1
-        },
-        {
-          q: "Heat to change liquid to gas without temp change:",
-          options: ["Specific heat", "Sensible heat", "Latent heat", "Heat capacity"],
-          answer: 2
-        },
-        {
-          q: "A machine is used to:",
-          options: ["Create energy", "Destroy energy", "Make work easier", "Increase mass"],
-          answer: 2
-        },
-        {
-          q: "Mechanical Advantage (MA) is:",
-          options: ["Effort/Load", "Load/Effort", "Load×Effort", "Effort-Load"],
-          answer: 1
-        },
-        {
-          q: "Efficiency formula is:",
-          options: ["VR/MA ×100", "MA/VR ×100", "Load/Effort ×100", "Effort/Load ×100"],
-          answer: 1
-        },
-        {
-          q: "Efficiency of real machine is less than 100% because of:",
-          options: ["Friction", "Weight", "Speed", "Gravity"],
-          answer: 0
-        },
-        {
-          q: "Which is a simple machine?",
-          options: ["Engine", "Generator", "Lever", "Turbine"],
-          answer: 2
-        },
-        {
-          q: "Velocity Ratio is ratio of:",
-          options: ["Load/Effort", "Effort/Load", "Distance effort/Distance load", "Distance load/Distance effort"],
-          answer: 2
-        },
-        {
-          q: "If MA = 5 and VR = 5, efficiency is:",
-          options: ["100%", "50%", "25%", "5%"],
-          answer: 0
-        },
-        {
-          q: "Specific heat capacity is:",
-          options: [
-            "Heat to raise 1kg by 1°C",
-            "Heat to boil water",
-            "Heat to melt solid",
-            "Total heat energy"
-          ],
-          answer: 0
-        },
-        {
-          q: "A machine with 100% efficiency is called _________:",
-          options: [
-            "Deal machine",
-            "Excellent machine",
-            "ID machine",
-            "Ideal machine"
-          ],
-          answer: 3
-        },
-        {
-          q: "Axle can also be called ___________",
-          options: [
-           "Driving",
-            "Drive",
-            "Driver",
-          "Driven"
-          ],
-          answer: 2
-         },
-
-
-        {
-          q: "A solid that changes directly into gas upon heating is said to have undergone _________.",
-          options: ["Evaporation", "Vaporization", "Solidification", "Sublimation"],
-          answer: 3
-        },
-        {
-          q: "Cooling of motor car engine uses ____________ application.",
-          options: ["Radiation", "Convection", "Conduction", "Evaporation"],
-          answer: 1
-        },
-        {
-          q: "A bimetallic strip comprises of _________ and _________ metal.",
-          options: ["Iron & Lead", "Bronze & Brass", "Brass & Iron", "Lead & Brass"],
-          answer: 2
-        },
-        {
-          q: "Which of the following surfaces will absorb radiant heat energy best?",
-          options: ["White", "Red", "Black", "Yellow"],
-          answer: 2
-        },
-        {
-          q: "A room is heated by means of a charcoal fire. Jamal standing away from the fire is warmed by",
-          options: ["Reflection", "Conduction", "Radiation", "Convection"],
-          answer: 2
-        },
-        {
-          q: "In which of the following is the expansion of solids a disadvantage?",
-          options: ["Fire alarms", "Thermostat", "Filling of tyres into rims", "Balance of wheel of a watch"],
-          answer: 3
-        },
-        {
-          q: "_____________ is regarded as good emitter and poor absorber of heat.",
-          options: ["Black & Dull Colours", "White & Shiny Colours", "Multicolours", "Rainbow"],
-          answer: 1
-        },
-        {
-          q: "The moon’s acceleration due to gravity is 1/6 of the earth’s value. The weight of a bowling ball on the moon would be",
-          options: [
-            "6 times its weight on the earth",
-            "1/6 of its weight on the earth",
-            "36times its weight on the earth",
-            "equal to its weight on the earth"
-          ],
-          answer: 1
-        },
-        {
-          q: "A body is whirled in a horizontal circle at the rate of 800 revolutions per minute. Determine the angular velocity",
-          options: [
-            "100πrads-1",
-            "33.3πrads-1",
-            "29.5πrads-1",
-            "26.7πrads-1"
-          ],
-          answer: 3
-        },
-        {
-          q: "The tangential force acting on an object that opposes it from sliding freely on the adjacent surface is called.",
-          options: [
-            "Normal force",
-            "Friction force",
-            "Weight",
-            "Upthrust"
-          ],
-          answer: 1
-        },
-        {
-          q: "Particles of mass 10-2kg is fixed to the tip of a fan blade which rotates with angular velocity of 100rads-1. If the radius of the blade is 0.2m, the centripetal force is",
-          options: [
-            "2N",
-            "20N",
-            "200N",
-            "400N"
-          ],
-          answer: 1
-        },
-        {
-          q: "A short chain is sometimes attached to the back of a petrol tanker to?",
-          options: [
-            "generate more friction",
-            "ensure the balancing of the tanker",
-            "caution the driver when over speeding",
-            "conduct excess charges to the earth"
-          ],
-          answer: 3
-        },
-        {
-          q: "If a wheel 1.2m in diameter rotates at one revolution per second, calculate the velocity of the wheel.",
-          options: [
-            "3.6ms-1",
-            "3.77ms-1",
-            "4.0ms-1",
-            "7.5ms-1"
-          ],
-          answer: 1
-        },
-
-        {
-          q: "A car of mass 800kg initially at rest is accelerated at the rate of 4ms⁻². The kinetic energy of the car after 5s is",
-          options: ["6.40 × 10³ J", "2.56 × 10⁴ J", "1.60 × 10⁵ J", "6.40 × 10⁵ J"],
-          answer: "2"
-        },
-        {
-          q: "A pump lifts water into an overhead tank at a height of 12m at the rate of 5 kg s⁻¹. The power of the pump is",
-          options: ["60 W", "600 W", "720 W", "1200 W"],
-          answer: 1
-        },
-        {
-          q: "A boy of weight 300N climbs to the top of a hill of height 20m. The work done against gravity is",
-          options: ["6000 J", "600 J", "320 J", "15 J"],
-          answer: 0
-        },
-        {
-          q: "An engine develops power of 750W while moving a car at constant velocity 3 m s⁻¹. The force exerted on the car by the engine is ",
-          options: ["83.3 N", "250 N", "750 N", "2250 N"],
-          answer: 1
-        },
-        {
-          q: "A 70kg man ascends a height of 4m in 7s. The power expended by the man is ",
-          options: ["40 W", "100 W", "280 W", "400 W"],
-          answer: 3
-        },
-        {
-          q: "24 kJ of heat is produced by an engine of 10W. If one quarter is converted to mechanical energy, the engine will run for ",
-          options: ["10 min", "40 min", "100 min", "400 min"],
-          answer: 0
-        },
-        {
-          q: "A body initially at rest is accelerated at the rate of 0.2ms-2 for 5s under a constant force of 50N. The work done on the body is",
-          options: ["10 J", "50 J", "125 J", "250 J"],
-          answer: 2
-        },
-        {
-          q: "A water pump of 1.2kW rating pumps 480kg of water into an overhead tank at a height of 5m in 30s. The efficiency of the pump is ",
-          options: ["90%", "80%", "66.7%", "62.5%"],
-          answer: 2
-        },
-        {
-          q: "A bullet of mass 40g travelling at 300ms-1 strikes a target normally and penetrates a distance of 20cm in the target before coming to rest. The average  force exerted on the bullet by the target is ",
-          options: ["90 N", "400 N", "900 N", "9000 N"],
-          answer: 3
-        },
-        {
-          q: "An object of mass 12kg held at a height of 5m above the ground for 30s.The work done within the period is",
-          options: ["600 J", "200 J", "60 J", "0 J"],
-          answer: 3
-        },
-        {
-          q: "The temperature 45⁰C is the same as ",
-          options: ["25°F", "57°F", "81°F", "113°F"],
-          answer: 3
-        },
-        {
-          q: "The lower fixed point corresponds to a length of 20mm on a steam of a thermometer while the upper fixed point corresponds to 160mm. The temperature corresponding to a length of 48mm is ",
-          options: ["20°C", "30°C", "41.7°C", "50°C"],
-          answer: 0
-        },
-        {
-          q: "A thermometer with an arbitrary scale Y registers -50⁰Y at the lower fixed point and +70⁰Y at the upper fixed point. The Celsius temperature corresponding to 30⁰Y ",
-          options: ["42.9°C", "50.0°C", "66.7°C", "75.0°C"],
-          answer: 2
-        },
-        {
-          q: "The temperature of -93⁰C corresponds to an absolute temperature of ",
-          options: ["366 K", "293 K", "273 K", "180 K"],
-          answer: 3
-        },
-        {
-          q: "A faulty mercury –in-glass thermometer has 1.5⁰C and 103.0⁰C as its ice and steam points respectively. When the true thermometer is 40⁰C the reading on the thermometer is ",
-          options: ["42.7°C", "42.1°C", "40.6°C", "39.1°C"],
-          answer: 1
-        },
-        {
-          q: "A thermocouple works on the principle of",
-          options: [
-            "variation of emf with temperature",
-            "variation of volume with temperature",
-            "variation of resistance with temperature",
-            "variation of pressure with temperature"
-          ],
-          answer: 0
-        },
-        {
-          q: "A telegraph wire of length 100.0m at 30⁰C has a linear expansivity of 2 x 10-5K-1 . The length of the wire at a temperature of -10⁰C ",
-          options: ["100.08 m", "100.04 m", "99.96 m", "99.92 m"],
-          answer: 3
-        },
-        {
-          q: "A square plate of side 10cm is made of a metal of linear expansivity 2 x 10-5K-1 . As the plate is heated from 30⁰C to 100⁰C, the area of one face of the plate will increase to ",
-          options: ["100.1 cm²", "100.3 cm²", "101.4 cm²", "102.8 cm²"],
-          answer: 1
-        },
-
-        {
-          q: "A metal cube of Volume V  and linear expansivity α is heated through a temperature rise of T. The increase in volume of the cube is ",
-          options: [
-            "3αVT",
-            "2αVT",
-            "αVT",
-            "αVT/3"
-
-          ],
-          answer: 0
-        },
-
-        {
-          q: "Which of the following substances is not an insulator? ",
-          options: [
-            "Glass",
-            "Silver",
-            "Plastic",
-            "Clay"
-
-          ],
-          answer: 1
-        },
-
-        {
-          q: "An electric charge can be transmitted through ",
-          options: [
-            "rubber, wood and stone",
-            "clay, paper and plastic",
-            "the human body, water and metals ",
-            "acid, cloth and glass"
-
-          ],
-          answer: 2
-        },
-        {
-          q: "Which of the following is not a suitable dielectric material? ",
-          options: ["Brass", "Paraffin wax", "Glass", "Ebonite"],
-          answer: 0
-        },
-
-        {
-          q: '____________ quantity is obtained by combination of two other quantities. ',
-          options: ['Fundamental', 'Mass', 'Area', 'Derived'],
-          answer: 3
-        },
-
-        {
-          q: 'The following are units of temperature EXCEPT ',
-          options: ['℉', '℃', 'K', 'None of the options'],
-          answer: 3
-        },
-
-        { q: 'The SI unit of force is?', options: ['Joule', 'Newton', 'Watt', 'Pascal'], answer: 1 },
-        { q: 'A car travels at an average speed of 110km/h. What distance does it cover in 12minutes?', options: ['1320km', '550km', '22km', '0.36km'], answer: 2 },
-        { q: 'The dimensional formula of acceleration is __________. ', options: ['LT⁻²', 'MLT⁻²', 'L²T⁻¹', 'LT'], answer: 0 },
-        { q: 'A vehicle of mass 800000g is moving at 20 m/s. Its momentum is __________.', options: ['16,000 Ns', '20,000 Ns', '18,000 Ns', '10,000 Ns'], answer: 0 },
-        { q: 'A body initially moving at 12 m/s is brought to rest in 3 s. The retardation is __________. ', options: ['–4 m/s²', '4 m/s²', '–6 m/s²', '6 m/s²'], answer: 2 },
-        { q: 'The instrument used to measure the internal diameter of a tube accurately is ___________', options: ['Ruler', 'Micrometer Screw Guage', 'Vernier Caliper', 'Tape Rule'], answer: 2 },
-        { q: 'A wheel rotates at 5 revolutions per second. The angular velocity is __________. (π = 3.14) ', options: ['3.14 rad/s', '10 rad/s', '15 rad/s', '31.4 rad/s'], answer: 3 },
-        { q: 'Weight varies from place to place because __________.', options: ['Mass is constant', 'Gravity varies', 'Temperature varies', 'Height changes'], answer: 1 },
-        { q: 'The SI unit of force is?', options: ['Joule', 'Newton', 'Watt', 'Pascal'], answer: 1 },
-        { q: ' ____________ quantity is obtained by combination of two other quantities.', options: ['Fundamental', 'Mass', 'Time', 'Derived'], answer: 3 },
-        { q: 'The following are units of temperature EXCEPT', options: ['℉', '℃', 'K', 'None of the above'], answer: 3 },
-        { q: 'Velocity along a straight line is also known as ________', options: ['Average Velocity', 'Constant Velocity', 'Speed/Time', 'All of the above'], answer: 1 },
-        { q: 'The full meaning of S.I unit is ______________', options: ['Standard International', 'System International', 'International System of Units', 'Scientific International Units'], answer: 2 },
-        { q: ' A train moves with a uniform velocity of 36km/hr for 10s. Calculate the distance travelled?', options: ['50 km', '100 m', '10 m/s', '20 m'], answer: 3 },
-        { q: 'The fundamental unit of Luminous intensity is', options: ['Ampere', 'Mole', 'Kilogram', 'Candela'], answer: 3 },
-        { q: 'Which of the following units is equivalent to Newton (N)', options: ['kgm', 'kgms²', 'kgms⁻²', 'kgm'], answer: 2 },
-        { q: 'The dimension of force is', options: ['ML', 'MLT²', 'MLT⁻²', 'MLT'], answer: 2 },
-        { q: 'The area covered under velocity-time graph represent', options: ['uniform acceleration', 'uniform speed', 'total speed', 'total distance travelled'], answer: 3 },
-        { q: 'Which of the following unit is equivalent to momentum (Ns)', options: ['kgm', 'kgm', 'kgms⁻1', 'Nms'], answer: 2 },
-        { q: ' A car of mass 15kg moving with a velocity of 2ms for 10 second The power dissipated by the car is', options: ['30j', '6j', '6w', '30kg'], answer: 2 },
-        { q: 'The energy released from the sun is known as', options: ['Heat energy', 'Tempration', 'solar energy', 'solar panels'], answer: 2 },
-        { q: 'The unit of momentum is', options: ['js', 'Ns', 'NS', 'Nms'], answer: 1 },
-        { q: 'Which of the following is not a scalar quantity?', options: ['density', 'weight', 'speed', 'mass'], answer: 1 },
-        { q: ' ___________ is the rate of doing work or the rate at which energy is expended and measured in watts', options: ['energy', 'force', 'power', 'work'], answer: 2 },
-        { q: 'Which of the following pairs of quantities are not derived', options: ['acceleration and length', 'force and density', 'time and electric current', 'volume and mass'], answer: 2 },
-        { q: ' A car travels at an average speed of 110km/h. What distance does it cover in 12minutes?', options: ['1320 km', '550km', '22km', '9.17km', '0.36km'], answer: 2 },
-        { q: ' A spring makes 40 oscillations in 15s, calculate its angular velocity [π=3.14]', options: ['251.20 rad/secs', '16.75rad/secs', '6.28rad/secs', '2.36rad/secs', '0.43rad/secs'], answer: 1 },
-        { q: 'A ball of mass 7kg falls from a height of 120m. Calculate its kinetic energy after falling through a distance of 70m', options: ['1715 J', '4900 J', '2450 J', '3430 J'], answer: 1 },
-        { q: 'A body of mass 5 kg moves with velocity 8 m/s. Its momentum is', options: ['13 Ns', '20 Ns', '40 Ns', '80 Ns'], answer: 2 },
-        { q: ' A car accelerates from rest at 2 m/s² for 6 seconds. The velocity gained is', options: ['2 m/s', '6 m/s', '8 m/s', '12 m/s'], answer: 3 },
-        { q: 'The unit of pressure is', options: ['N/m³', 'N/m²', 'Nm²', 'Nm⁻²'], answer: 1 },
-        { q: 'The force that opposes motion between two surfaces in contact is called', options: ['Tension', 'Friction', 'Weight', 'Torque', 'Pressure'], answer: 1 },
-        { q: 'Which method reduces friction?', options: ['Roughening surfaces', 'Lubrication', 'Adding weight', 'Increasing area', 'Sanding'], answer: 1 },
-        { q: 'The coefficient of friction has', options: ['Unit N', 'Unit m', 'Unit Nm', 'Unit kg', 'No unit'], answer: 4 },
-        { q: 'A body moving in a circular path changes __________ continuously.', options: ['Speed', 'Mass', 'Velocity', 'Time', 'Weight'], answer: 2 },
-        { q: 'The force needed to keep a body in circular motion is', options: ['Gravity', 'Centrifugal', 'Centripetal', 'Electrostatic', 'Inertia'], answer: 2 },
-        { q: ' A horizontal straight line on a V–T graph represents', options: ['Increasing speed', 'Decreasing speed', 'Constant velocity', 'Constant acceleration', 'Deceleration'], answer: 2 },
-        { q: 'The slope of a velocity–time graph gives', options: ['Velocity', 'Time', 'Acceleration', 'Force', 'Distance'], answer: 2 },
-        { q: 'The area under a velocity–time graph gives', options: ['Distance', 'Power', 'Work', 'Force', 'Mass'], answer: 0 },
-        { q: 'The dimensional formula of acceleration is', options: ['LT⁻²', 'MLT⁻²', 'L²T⁻¹', 'LT', 'T⁻²'], answer: 0 },
-        { q: 'Density is defined as', options: ['Mass × volume', 'Mass ÷ volume', 'Volume ÷ mass', 'Weight × height', 'Weight ÷ mass'], answer: 1 },
-        { q: 'A body is said to be in motion if it', options: ['Has mass', 'Changes position', 'Has volume', 'Is visible', 'Has energy'], answer: 1 },
-        { q: 'The friction that acts on a moving object is', options: ['Static', 'Limiting', 'Rolling', 'Sliding', 'Kinetic'], answer: 4 },
-        { q: 'Motion in a circle at constant speed is', options: ['Curvilinear', 'Accelerated', 'Simple', 'Linear', 'Rotational'], answer: 4 },
-        { q: 'Vehicles moving around a bend are kept on track by', options: ['Gravity', 'Centrifugal force', 'Magnetic force', 'Centripetal force', 'Resistance'], answer: 3 },
-        { q: 'The dimensional formula of pressure is', options: ['ML⁻¹T⁻²', 'MLT⁻¹', 'L²T⁻¹', 'MT⁻²', 'L⁻³T⁻²'], answer: 0 },
-        { q: 'The SI unit of energy is', options: ['Newton', 'Joule', 'Watt', 'Pascal', 'Coulomb'], answer: 1 },
-        { q: ' A vehicle of mass 800000g is moving at 20 m/s. Its momentum is', options: ['16,000 Ns', '20,000 Ns', '18,000 Ns', '10,000 Ns', '8,000 Ns'], answer: 0 },
-        { q: 'Calculate the frictional force if coefficient of friction is 0.25 and normal reaction is 400 N.', options: ['100 N', '80 N', '160 N', '120 N', '40 N'], answer: 0 },
-        { q: ' A stone of mass 2 kg is tied to a string and whirled in a circle of radius 1.5 m with speed 5 m/s. Find the centripetal force.', options: ['10 N', '20 N', '25 N', '33.3 N', '50 N'], answer: 3 },
-        { q: ' A body initially moving at 12 m/s is brought to rest in 3 s. The retardation is', options: ['-4 m/s²', '4 m/s²', '-6 m/s²', '6 m/s²', '-12 m/s²'], answer: 0 },
-        { q: ' A wheel rotates at 5 revolutions per second. The angular velocity is (π = 3.14)', options: ['3.14 rad/s', '10 rad/s', '15 rad/s', '31.4 rad/s', '25 rad/s'], answer: 3 },
-        { q: ' If mass = 5 kg and acceleration = 3 m/s², calculate the force.', options: ['8 N', '10 N', '12 N', '15 N', '20 N'], answer: 3 },
-        { q: ' A particle moves in a circle of radius 2 m with frequency 4 Hz. Its speed is (π = 3.14)', options: ['12.56 m/s', '25.12 m/s', '31.4 m/s', '50.24 m/s', '6.28 m/s'], answer: 3 },
-        { q: 'If mass = 5 kg and acceleration = 3 m/s², calculate the force.', options: ['8 N', '10 N', '12 N', '15 N', '20 N'], answer: 3 },
-        { q: 'The instrument used to measure the internal diameter of a tube accurately is', options: ['Ruler', 'Micrometer Screw Guage', 'Vernier Caliper', 'Tape Rule'], answer: 2 },
-        { q: 'The smallest measurement on a standard metre rule is', options: ['0.5 m', '1 cm', '0.1 m', '0.1 cm', '0.1 mm'], answer: 3 },
-        { q: 'Parallax error occurs when', options: ['Eye is not perpendicularly above scale', 'Instrument is adjusted', 'Scale expands', 'Value is correct', 'Value is zero'], answer: 0 },
-        { q: 'Weight varies from place to place because', options: ['Mass is constant', 'Gravity varies', 'Temperature varies', 'Density varies', 'Height changes'], answer: 1 },
-        {
-          q: "A solid that changes directly into gas upon heating is said to have undergone _________.",
-          options: ["Evaporation", "Vaporization", "Solidification", "Sublimation"],
-          answer: 3
-        },
-        {
-          q: "Cooling of motor car engine uses ____________ application.",
-          options: ["Radiation", "Convection", "Conduction", "Evaporation"],
-          answer: 1
-        },
-        {
-          q: "A bimetallic strip comprises of _________ and _________ metal.",
-          options: ["Iron & Lead", "Bronze & Brass", "Brass & Iron", "Lead & Brass"],
-          answer: 2
-        },
-        {
-          q: "Which of the following surfaces will absorb radiant heat energy best?",
-          options: ["White", "Red", "Black", "Yellow"],
-          answer: 2
-        },
-        {
-          q: "A room is heated by means of a charcoal fire. Jamal standing away from the fire is warmed by",
-          options: ["Reflection", "Conduction", "Radiation", "Convection"],
-          answer: 2
-        },
-        {
-          q: "In which of the following is the expansion of solids a disadvantage?",
-          options: ["Fire alarms", "Thermostat", "Filling of tyres into rims", "Balance of wheel of a watch"],
-          answer: 3
-        },
-        {
-          q: "_____________ is regarded as good emitter and poor absorber of heat.",
-          options: ["Black & Dull Colours", "White & Shiny Colours", "Multicolours", "Rainbow"],
-          answer: 1
-        }
-
-      ];
-
-      const mathsQuestions = [
-
-        {
-          q: 'To construct a 90° angle without a protractor, you can use:',
-          options: ['Compass and ruler', 'Ruler only', 'Divider only', 'None of the above'],
-          answer: 0
-        },
-        {
-          q: 'To construct a 30° angle using a compass, you first construct:',
-          options: ['60° angle', '90° angle', '45° angle', '120° angle'],
-          answer: 0
-        },
-
-        {
-          q: 'An angle bisector divides an angle into:',
-          options: ['Two equal angles', 'Two complementary angles', 'Two obtuse angles', 'Two reflex angles'],
-          answer: 0
-        },
-
-        {
-          q: 'The center of an inscribed circle is intersection of:',
-          options: ['Altitudes', 'Medians', 'Angle bisectors', 'Perpendicular bisectors'],
-          answer: 2
-        },
-        {
-          q: 'Which instrument is NOT normally required for geometric construction?',
-          options: ['Compass', 'Ruler', 'Calculator', 'Divider'],
-          answer: 2
-        },
-
-        {
-          q: 'Which tool is used to draw arcs in construction?',
-          options: ['Ruler', 'Compass', 'Protractor', 'Divider'],
-          answer: 1
-        },
-
-        {
-          q: 'The center of a circumcircle is the intersection of:',
-          options: ['Altitudes', 'Medians', 'Perpendicular bisectors', 'Angle bisectors'],
-          answer: 2
-        },
-        {
-          q: 'Which construction divides an angle into two equal parts?',
-          options: ['Perpendicular construction', 'Angle bisector', 'Parallel construction', 'Midpoint construction'],
-          answer: 1
-        },
-        {
-          q: "Simplify: 2/(x+y) − 1/(x−y)",
-          options: [
-            "3/(x−y)",
-            "(x−3y)/(x−y)²",
-            "(x−3y)/(a²+b²)",
-            "(x−3y)/(x²−y²)",
-            "(3x−y)/(x²−y²)"
-          ],
-          answer: 3
-        },
-        {
-          q: "Simplify: 13x − 3(5x − 4y + 1)",
-          options: [
-            "2x−2y−3",
-            "−2x−12y−3",
-            "−2x+12y+3",
-            "12y−2x+3",
-            "12y−2x−3"
-          ],
-          answer: 4
-        },
-        {
-          q:
-            "Given that x ∝ 1/√y and x = 5 when y = 25, find the value of y when x = 1⅔",
-          options: ["225", "25", "22.5", "√15", "3√5"],
-          answer: 0
-        },
-        {
-          q: "Make t the subject of the formula: k = m√((t − p)/r)",
-          options: [
-            "(rk² + p)/m²",
-            "(rk² + pm²)/m²",
-            "(rk² − p)/m²",
-            "(rk² − p²)/m²",
-            "(rk² − pm²)/m²"
-          ],
-          answer: 1
-        },
-        {
-          q: "Solve: (2m+1)/6 − (3m−1)/4 = 0",
-          options: ["−1", "2", "−0.25", "0.5", "1"],
-          answer: 4
-        },
-        {
-          q: "Simplify: (2⅓ + 5/2 − 1) / (12 − 11¾)",
-          options: ["10⅔", "15⅓", "16¼", "17½"],
-          answer: 1
-        },
-        {
-          q:
-            "Given that (5m − n)/(m + 4n) = −4, find the value of m/n",
-          options: ["−1⅔", "5/3", "−3/5", "−5/3", "1⅓"],
-          answer: 3
-        },
-        {
-          q:
-            "If 4x − 2 = 3x − 5, find the value of 7x",
-          options: ["7", "−3", "−21", "−49"],
-          answer: 2
-        },
-        {
-          q: "Solve: 6(y−4) + 3(y+7) = 6",
-          options: ["3/2", "2/3", "1", "0"],
-          answer: 2
-        },
-        {
-          q: "Evaluate: 5⁻¹",
-          options: ["−5", "1/5", "1/25", "0.5"],
-          answer: 1
-        },
-        {
-          q: "If log₁₀q = 5, find q",
-          options: ["5000", "100000", "10000", "500", "50"],
-          answer: 1
-        },
-        {
-          q: "Simplify: 81^(3/4) / 27^(−2/3)",
-          options: ["3¹", "3⁵", "36", "9³", "3⁻⁵"],
-          answer: 1
-        },
-        {
-          q:
-            "Evaluate 0.0013 ÷ 0.016, leaving your answer in standard form (2 s.f.)",
-          options: [
-            "8.1 × 10⁻¹",
-            "8.1 × 10⁻²",
-            "8.1 × 10⁻³",
-            "0.81",
-            "0.081"
-          ],
-          answer: 1
-        },
-        {
-          q: "Which of the following is equal to 72/125?",
-          options: [
-            "(2³ × 3²)/5³",
-            "(2⁴ × 3)/5³",
-            "(2³ × 3²)/5⁵",
-            "(2⁴ × 3)/5⁶",
-            "(2² × 3² × 4²)/5²"
-          ],
-          answer: 0
-        },
-        {
-          q:
-            "Given £ = {1,2,3,…,10}, M = {x : x is even}, P = {z : z is prime}, find M′ ∩ P",
-          options: ["{5}", "{2,8}", "{4,6,8,10}", "{}", "{3,5,7}"],
-          answer: 4
-        },
-
-        {
-          q: 'To construct a 90° angle without a protractor, you can use:',
-          options: ['Compass and ruler', 'Ruler only', 'Divider only', 'None of the above'],
-          answer: 0
-        },
-        {
-          q: 'To construct a 30° angle using a compass, you first construct:',
-          options: ['60° angle', '90° angle', '45° angle', '120° angle'],
-          answer: 0
-        },
-
-        {
-          q: 'An angle bisector divides an angle into:',
-          options: ['Two equal angles', 'Two complementary angles', 'Two obtuse angles', 'Two reflex angles'],
-          answer: 0
-        },
-
-        {
-          q: 'The center of an inscribed circle is intersection of:',
-          options: ['Altitudes', 'Medians', 'Angle bisectors', 'Perpendicular bisectors'],
-          answer: 2
-        },
-        {
-          q: "If 3y + 4 − y/3 = y + 9, find y",
-          options: ["3", "4", "5", "6"],
-          answer: 0
-        },
-        {
-          q: "Simplify: 8a − 3(2a − 3b)",
-          options: ["2a+9b", "5a−9b", "2a−9b", "2a+3b"],
-          answer: 0
-        },
-        {
-          q: "log 0 is",
-          options: ["0", "1", "Undefined", "Infinity"],
-          answer: 2
-        },
-        {
-          q: "Convert 2748 to base 2",
-          options: ["101110100", "11011100", "101101100", "111010100"],
-          answer: 3
-        },
-        {
-          q: "The decimal part of a logarithm is called",
-          options: ["Character", "Characteristics", "Mantissa", "Mantis"],
-          answer: 2
-        },
-        {
-          q: "logₐ(a³) = ?",
-          options: ["a³", "3", "3a", "1/3"],
-          answer: 1
-        },
-        {
-          q:
-            "If a² − 8a + k is a perfect square, find k",
-          options: ["2", "4", "8", "16"],
-          answer: 3
-        },
-        {
-          q:
-            "Which of the following is not mathematically proper?",
-          options: ["−2x + y", "1/√2", "1/(−2)", "All of the options"],
-          answer: 1
-        },
-        {
-          q:
-            "Umar can change 3x − 6 to an equation by adding",
-          options: ["×", "x", "π", "="],
-          answer: 3
-        },
-        {
-          q:
-            "Which of the following is not a polynomial?",
-          options: [
-            "−3y + (2y)⁴",
-            "−3y + (2y)⁰",
-            "−3 + 2⁴",
-            "3y + y²"
-          ],
-          answer: 2
-        },
-        {
-          q: "Solve for x: 5(2^(x−3)) = 160",
-          options: ["6", "7", "8", "10"],
-          answer: 2
-        },
-
-
-        {
-          q: "Find the Perimeter of the figure below",
-          img: "images/trapezium.png",
-          options: ["68m", "62m", "78m", "300m"],
-          answer: 2
-        },
-        {
-          q: "What is the value of sin 30°?",
-          img: "",
-          options: ["0.5", "0.87", "1", "0.707"],
-          answer: 0
-        },
-        {
-          q: "Calculate the area of the figure below",
-          img: "images/trapezium.png",
-          options: ["300m2", "600m2", "500m2", "350m2"],
-          answer: 0
-        },
-        {
-          q: "Find the Perimeter of the figure below",
-          img: "images/shape1.png",
-          options: ["33cm", "35cm", "32cm", "31cm"],
-          answer: 2
-        },
-        {
-          q: "What is the value of p?",
-          img: "images/shape2.png",
-          options: ["50°", "130°", "90°", "100°"],
-          answer: 1
-        },
-
-        {
-          q: "Evaluate ",
-          img: "images/bodmas.png",
-          options: ["10", "0", "5", "15"],
-          answer: 2
-        },
-        {
-          q: "What is the value of sin 30°?",
-          img: "",
-          options: ["0.5", "0.87", "1", "0.707"],
-          answer: 0
-        },
-
-        {
-          q: 'One of the following statements is NOT correct?', options: ['Integers are positive or negative whole numbers', '2, 7, 13, 19, 31, 97 are prime numbers', '√7, √-15, √-18, √15 are real numbers', '0.222, 0.416, √64 are rational numbers', '363, 616, 9845, 27566 are divisible by 11'
-          ], answer: 2
-        },
-        {
-          q: 'Evaluate ((-9)×(-8)×(-2))/(-8+3×6)', options: ['14 3/2', '4 5/4', '14 2/5', '-10 5/1', '-14 5/2'
-          ], answer: 2
-        },
-        {
-          q: 'Simplify 0.87345 + 0.004 to two significant figures',
-          options: ['0.87745', '0.88', '87', '88', '8.8'],
-          answer: 1
-        },
-        {
-          q: '(3/4 + 2) × 5 1/5 ÷ 3 1/4',
-          options: ['4 2/5', '3 1/5', '5 1/5', '46/19', '2 2/5'],
-          answer: 1
-        },
-        {
-          q: 'Express 68464 to three significant figures',
-          options: ['68400', '68460', '68500', '684.64', '685'],
-          answer: 1
-        },
-        {
-          q: 'Evaluate 0.6753 × 100 to two significant figures',
-          options: ['0.0067', '0.0068', '0.068', '67.53', '68'],
-          answer: 4
-        },
-        {
-          q: 'Simplify 3/4 ÷ 2 1/4 × (2 1/2 − 1 3/2)',
-          options: ['7/18', '5/18', '7/15', '1/18', '5/12'],
-          answer: 1
-        },
-
-        {
-          q: 'Which instrument is NOT normally required for geometric construction?',
-          options: ['Compass', 'Ruler', 'Calculator', 'Divider'],
-          answer: 2
-        },
-
-        {
-          q: 'Which tool is used to draw arcs in construction?',
-          options: ['Ruler', 'Compass', 'Protractor', 'Divider'],
-          answer: 1
-        },
-
-        {
-          q: 'The center of a circumcircle is the intersection of:',
-          options: ['Altitudes', 'Medians', 'Perpendicular bisectors', 'Angle bisectors'],
-          answer: 2
-        },
-        {
-          q: 'Which construction divides an angle into two equal parts?',
-          options: ['Perpendicular construction', 'Angle bisector', 'Parallel construction', 'Midpoint construction'],
-          answer: 1
-        },
-        {
-          q: '(110)₂² − (111)₂² equals',
-          options: ['1111000', '10100', '1110', '1111100', '10100'],
-          answer: 2
-        },
-        {
-          q: '12₁₀ converted to base 2 is',
-          options: ['10000', '11000', '1100', '100000', '10100'],
-          answer: 2
-        },
-        {
-          q: 'If 105ₓ = 86, find x',
-          options: ['9', '8', '7', '10', '6'],
-          answer: 1
-        },
-
-        {
-          q: 'If 5X2₁₂ = 75₈, find X',
-          options: ['4', '5', '8', '3', '2'],
-          answer: 0
-        },
-        {
-          q: 'If y = 23₅ + 101₃ find y in base 2',
-          options: ['1110', '10111', '11101', '111100', '100111'],
-          answer: 3
-        },
-        {
-          q: 'Given 101011₂ − P₁₀ = 11101₂, find P',
-          options: ['14', '13', '11', '12', '16'],
-          answer: 3
-        },
-        {
-          q: 'Residues for mod 8 are',
-          options: [
-            '{1,2,3,4,5,7}',
-            '{0,1,2,3,5,6,7}',
-            '{1,2,3,4,5,6,7}',
-            '{0,1,2,3,4,5,6,7,8}',
-            '{0,1,2,3,4,5,6,7}'
-          ],
-          answer: 4
-        },
-        {
-          q: 'Evaluate 25 ⊕ 12 (mod 7)',
-          options: ['1', '2', '3', '4', '5'],
-          answer: 1
-        },
-        {
-          q: 'Simplest positive form of −35 (mod 6)',
-          options: ['1', '0', '4', '2', '3'],
-          answer: 4
-        },
-        {
-          q: '24 ⊗ 34 in mod 5',
-          options: ['3', '5', '2', '1', '4'],
-          answer: 2
-        },
-        {
-          q: 'Find 5 ⦼ 4 (mod 7)',
-          options: ['1,6', '2,3', '3', '5', '0'],
-          answer: 0
-        },
-        {
-          q: 'Find 3 ⦼ 7 (mod 8)',
-          options: ['1', '4', '3', '5', '0'],
-          answer: 4
-        },
-        {
-          q: 'Solve 2x + 3 ≡ 5 (mod 6)',
-          options: ['1 and 4', '2 and 4', '1 and 3', '3 and 4', 'No solution'],
-          answer: 0
-        },
-
-        {
-          q: 'If A = { 1, 2, 3} and B = { 2, 3, 4}, find A ∪ B',
-          options: ['{ 1, 2, 3, 4}', '{ 1, 4}', '{ 2, 3}', '{ 1, 3, 4}', '{}'],
-          answer: 0
-        },
-        {
-          q: 'If A = { 1, 2, 3} and B = { 2, 3, 4}, find A ∩ B',
-          options: ['{ 1, 4}', '{ 2, 3}', '{ 1, 3}', '{}', '{ 1, 2}'],
-          answer: 1
-        },
-        {
-          q: 'A set with no element is called',
-          options: ['Null set', 'Finite set', 'Infinite set', 'Unit set', 'Universal set'],
-          answer: 0
-        },
-        {
-          q: '5⁻¹ is equal to',
-          options: ['-5', '1 / 5', '1 / 25', '0.5', '5'],
-          answer: 1
-        },
-        {
-          q: 'If log₁₀ q = 5, then q is',
-          options: ['5000', '100000', '10000', '500', '50'],
-          answer: 1
-        },
-        {
-          q: 'Simplify 81 ^ (3 / 4) ÷ 27 ^ (-2 / 3)',
-          options: ['3', '9', '243', '93', '1 / 3'],
-          answer: 2
-        },
-        {
-          q: 'Evaluate 0.0013 ÷ 0.016 in standard form(2 s.f.)',
-          options: ['8.1 × 10⁻¹', '8.1 × 10⁻²', '8.1 × 10⁻³', '0.81', '0.081'],
-          answer: 0
-        },
-        {
-          q: 'Which of the following equals 72 / 125 ?',
-          options: [
-            '(2³ × 3²) / 5³',
-            '(2⁴ × 3) / 5³',
-            '(2³ × 3²) / 5⁵',
-            '(2⁴ × 3) / 5⁶',
-            '(2² × 3² × 4²) / 5²'
-          ],
-          answer: 0
-        },
-        {
-          q: 'If U = { 1, 2, 3,…, 10}, M = even numbers and P = prime numbers, find M’ ∩ P',
-          options: ['{ 5}', '{ 2, 8}', '{ 4, 6, 8, 10}', '{}', '{ 3, 5, 7}'],
-          answer: 4
-        },
-        {
-          q: 'The set of residues for modulo 8 is',
-          options: [
-            '{ 1, 2, 3, 4, 5, 7}',
-            '{ 0, 1, 2, 3, 5, 6, 7}',
-            '{ 1, 2, 3, 4, 5, 6, 7}',
-            '{ 0, 1, 2, 3, 4, 5, 6, 7, 8}',
-            '{ 0, 1, 2, 3, 4, 5, 6, 7}'
-          ],
-          answer: 4
-        },
-        {
-          q: '{ } means',
-          options: ['Null set', 'Singleton', 'Subset', 'Complement', 'Universal'],
-          answer: 0
-        },
-        {
-          q: 'log 0 is',
-          options: ['0', '1', 'Undefined', 'Infinity', '10'],
-          answer: 2
-        },
-        {
-          q: 'Convert 274₁₀ to base 2',
-          options: ['101110100', '11011100', '101101100', '111010100', '101111000'],
-          answer: 3
-        },
-        {
-          q: 'In Venn diagram, the universal set is represented by',
-          options: ['Circle', 'Square', 'Rectangle', 'Triangle', 'Line'],
-          answer: 2
-        },
-        {
-          q: 'To show a subset in a Venn diagram, which shape is used ?',
-          options: ['Square', 'Rectangle', 'Circle', 'Triangle', 'None'],
-          answer: 2
-        },
-        {
-          q: 'The decimal part of a logarithm is called',
-          options: ['Character', 'Characteristic', 'Mantissa', 'Mantis', 'Index'],
-          answer: 2
-        },
-        {
-          q: 'The symbol ∈ means',
-          options: ['Set', 'Member of', 'Universal', 'Subset', 'Equal to'],
-          answer: 1
-        },
-        {
-          q: 'Two sets with no common elements are called',
-          options: ['Empty sets', 'Joint sets', 'Null sets', 'Disjoint sets', 'Equal sets'],
-          answer: 3
-        },
-        {
-          q: '144(mod 12) is',
-          options: ['11', '12', '0', '1', '144'],
-          answer: 2
-        },
-        {
-          q: 'logₐ(a³) is equal to',
-          options: ['a³', '3', '3a', '1 / 3', 'a'],
-          answer: 1
-        },
-        {
-          q: 'What is the value of sin 30°?',
-          options: ['0.5', '0.87', '1', '0.707'],
-          answer: 0
-        },
-        {
-          q: 'In a right- angled triangle, which ratio is defined as opposite / hypotenuse ?',
-          options: ['Sine', 'Cosine', 'Tangent', 'Secant'],
-          answer: 0
-        },
-        {
-          q: 'If tan θ = 1, what is the value of θ?',
-          options: ['30°', '45°', '60°', '90°'],
-          answer: 1
-        },
-        {
-          q: 'What is the ratio for cos θ in a right- angled triangle ?',
-          options: ['Opposite / Hypotenuse', 'Adjacent / Hypotenuse', 'Opposite / Adjacent', 'Hypotenuse / Opposite'],
-          answer: 1
-        },
-        {
-          q: 'If a triangle has an angle of 60°, what is the sin of that angle ?',
-          options: ['1', '0.5', '√3 / 2', '√2 / 2'],
-          answer: 2
-        },
-        {
-          q: 'Which of the following is NOT a trigonometric ratio?',
-          options: ['Sine', 'Cosine', 'Logarithm', 'Tangent'],
-          answer: 2
-        },
-        {
-          q: 'In a right triangle, a = 5 cm, b = 12 cm.Find c.',
-          options: ['10 cm', '13 cm', '17 cm', '7 cm'],
-          answer: 1
-        },
-        {
-          q: 'The Pythagorean theorem is expressed as',
-          options: ['a² = b² + c²', 'a² + b² = c²', 'a = b + c', 'a² − b² = c²'],
-          answer: 1
-        },
-        {
-          q: 'If the hypotenuse is 10 cm and one side is 6 cm, find the other side.',
-          options: ['4 cm', '8 cm', '6 cm', '12 cm'],
-          answer: 1
-        },
-        {
-          q: 'Which side is the hypotenuse in a right- angled triangle ?',
-          options: ['The shortest side', 'The side opposite the right angle', 'Any side', 'The vertical side'],
-          answer: 1
-        },
-        {
-          q: 'Find the diagonal of a rectangle with sides 9 cm and 12 cm.',
-          options: ['21 cm', '15 cm', '10.5 cm', '7.5 cm'],
-          answer: 1
-        },
-        {
-          q: 'What is the exact value of sin 45°?',
-          options: ['1', '√2 / 2', '√(3 / 2)', '0'],
-          answer: 1
-        },
-        {
-          q: 'What is tan 30°?',
-          options: ['√(1 / 3)', '√3/3', '1', '0'],
-          answer: 1
-        },
-        {
-          q: 'sin 60° is equal to',
-          options: ['√(2 / 2)', '√(1 / 2)', '√(3 / 2)', '0'],
-          answer: 2
-        },
-        {
-          q: 'Which trigonometric ratio is √(3 / 2) for 60°?',
-          options: ['Sine', 'Cosine', 'Tangent', 'Secant'],
-          answer: 0
-        },
-        {
-          q: 'What is the cosine of 45° in surd form ?',
-          options: ['√2 / 2', '√(3 / 2)', '1 / 2', '1'],
-          answer: 0
-        },
-        {
-          q: 'What is the perimeter of a square of side 5 cm ?',
-          options: ['10 cm', '20 cm', '25 cm', '15 cm'],
-          answer: 1
-        },
-        {
-          q: 'The area of a triangle is',
-          options: ['base × height', '½ × base × height', 'length × breadth', '2 × (l + b)'],
-          answer: 1
-        },
-        {
-          q: 'A rectangle has length 8 cm and breadth 4 cm.Find its area.',
-          options: ['12 cm²', '32 cm²', '24 cm²', '16 cm²'],
-          answer: 1
-        },
-        {
-          q: 'A circle has radius 7 cm.Find its perimeter(π = 22 / 7).',
-          options: ['44 cm', '154 cm', '49 cm', '28 cm'],
-          answer: 0
-        },
-        {
-          q: 'The area of a circle is',
-          options: ['πd', 'πr²', '2πr', 'πr'],
-          answer: 1
-        },
-        {
-          q: 'What is the area of a square with diagonal 10 cm ?',
-          options: ['50 cm²', '100 cm²', '25 cm²', '75 cm²'],
-          answer: 0
-        },
-        {
-          q: 'A parallelogram has base 12 cm and height 5 cm.Find its area.',
-          options: ['60 cm²', '30 cm²', '17 cm²', '12 cm²'],
-          answer: 0
-        },
-        {
-          q: 'What is the perimeter of a triangle with sides 4 cm, 5 cm and 6 cm ?',
-          options: ['15 cm', '16 cm', '18 cm', '20 cm'],
-          answer: 0
-        },
-        {
-          q: 'The area of a trapezium is',
-          options: ['½ × (sum of parallel sides) × height', 'base × height', '2 × base × height', 'height × width'],
-          answer: 0
-        },
-        {
-          q: 'A polygon with 5 sides is called',
-          options: ['Hexagon', 'Pentagon', 'Octagon', 'quadrilateral'],
-          answer: 1
-        },
-        {
-          q: 'How many sides does a decagon have ?',
-          options: ['8', '10', '12', '6'],
-          answer: 1
-        },
-        {
-          q: 'The sum of interior angles of a triangle is',
-          options: ['180°', '360°', '90°', '270°'],
-          answer: 0
-        },
-        {
-          q: 'The formula for sum of interior angles of a polygon is',
-          options: ['(n – 1) × 180°', '(n + 2) × 180°', '(n – 2) × 180°', 'n × 180°'],
-          answer: 2
-        },
-        {
-          q: 'A regular polygon has interior angle 120°. How many sides does it have ?',
-          options: ['3', '6', '8', '12'],
-          answer: 1
-        },
-
-        {
-          q: 'Which instrument is NOT normally required for geometric construction?',
-          options: ['Compass', 'Ruler', 'Calculator', 'Divider'],
-          answer: 2
-        },
-
-        {
-          q: 'Which tool is used to draw arcs in construction?',
-          options: ['Ruler', 'Compass', 'Protractor', 'Divider'],
-          answer: 1
-        },
-
-        {
-          q: 'The center of a circumcircle is the intersection of:',
-          options: ['Altitudes', 'Medians', 'Perpendicular bisectors', 'Angle bisectors'],
-          answer: 2
-        },
-        {
-          q: 'Which construction divides an angle into two equal parts?',
-          options: ['Perpendicular construction', 'Angle bisector', 'Parallel construction', 'Midpoint construction'],
-          answer: 1
-        },
-        {
-          q: 'To construct a 90° angle without a protractor, you can use:',
-          options: ['Compass and ruler', 'Ruler only', 'Divider only', 'None of the above'],
-          answer: 0
-        },
-        {
-          q: 'To construct a 30° angle using a compass, you first construct:',
-          options: ['60° angle', '90° angle', '45° angle', '120° angle'],
-          answer: 0
-        },
-
-        {
-          q: 'An angle bisector divides an angle into:',
-          options: ['Two equal angles', 'Two complementary angles', 'Two obtuse angles', 'Two reflex angles'],
-          answer: 0
-        },
-
-        {
-          q: 'The center of an inscribed circle is intersection of:',
-          options: ['Altitudes', 'Medians', 'Angle bisectors', 'Perpendicular bisectors'],
-          answer: 2
-        },
-        {
-          q: 'Which instrument is NOT normally required for geometric construction?',
-          options: ['Compass', 'Ruler', 'Calculator', 'Divider'],
-          answer: 2
-        },
-
-        {
-          q: 'Which tool is used to draw arcs in construction?',
-          options: ['Ruler', 'Compass', 'Protractor', 'Divider'],
-          answer: 1
-        },
-
-        {
-          q: 'The center of a circumcircle is the intersection of:',
-          options: ['Altitudes', 'Medians', 'Perpendicular bisectors', 'Angle bisectors'],
-          answer: 2
-        },
-        {
-          q: 'Which construction divides an angle into two equal parts?',
-          options: ['Perpendicular construction', 'Angle bisector', 'Parallel construction', 'Midpoint construction'],
-          answer: 1
-        },
-      ];
 
       let questions = [];
       let studentSubject = "";
@@ -1447,11 +233,18 @@
 
         document.getElementById('candidate').innerText = `${name.toUpperCase()} - ${studentClass} - ${subject}`;
 
-        if (subject === "PHYSICS") {
-          questions = physicsQuestions;
-        } else if (subject === "MATHEMATICS") {
-          questions = mathsQuestions;
+        if (subject === "ss2physics") {
+          questions = ss2physicsQuestions;
+        } else if (subject === "ss2maths") {
+          questions = ss2mathsQuestions;
         }
+        else if (subject === "ss1maths") {
+          questions = ss1mathsQuestions;
+        }
+        else if (subject === "ss1physics") {
+          questions = ss1physicsQuestions;
+        }
+
 
         index = 0;
         answers = new Array(questions.length).fill(null);
@@ -1480,14 +273,36 @@
         if (q.img) {
           html += `<img src="${q.img}" class="qimg">`;
         }
-        html += `<div class='options'>`;
-        q.options.forEach((opt, i) => {
-          html += `<label><input type='radio' name='opt' ${answers[index] == i ? 'checked' : ''} onchange='answers[${index}]=${i}; updatePalette(${index})'> ${opt}</label>`;
-        });
+        // OBJECTIVE QUESTIONS
+        if (!q.type || q.type === "objective") {
+          q.options.forEach((opt, i) => {
+            html += `
+        <label>
+          <input type='radio' name='opt'
+          ${answers[index] == i ? 'checked' : ''}
+          onchange='answers[${index}]=${i}; updatePalette(${index})'>
+          ${opt}
+        </label><br>`;
+          });
+        }
+
+        // INPUT QUESTIONS
+        else if (q.type === "input") {
+          html += `
+      <input type="text" placeholder="Type your answer "class= "question-input"
+      value="${answers[index] || ""}"
+      oninput="answers[${index}] = this.value; updatePalette(${index})">
+    `;
+        }
+
         html += `</div></div>`;
+
         document.getElementById('questionBox').innerHTML = html;
         highlightCurrent();
       }
+
+
+
 
       function renderPalette() {
         let p = '';
@@ -1525,10 +340,38 @@
 
         clearInterval(timer);
         score = 0;
-        questions.forEach((q, i) => { if (answers[i] === q.answer) score++; });
+        questions.forEach((q, i) => {
+          let userAnswer = answers[i];
 
+          // OBJECTIVE
+          if (!q.type || q.type === "objective") {
+            if (userAnswer === q.answer) score++;
+          }
 
+          // INPUT
+          else if (q.type === "input") {
 
+            if (!userAnswer) return;
+
+            let user = userAnswer.toString().toLowerCase().trim();
+
+            // if answer is array (multiple correct answers)
+            if (Array.isArray(q.answer)) {
+              if (q.answer.some(ans => user === ans.toLowerCase().trim())) {
+                score++;
+              }
+            }
+
+            // single answer
+            else {
+              let correct = q.answer.toString().toLowerCase().trim();
+
+              if (user === correct) {
+                score++;
+              }
+            }
+          }
+        });
         // let percent = (score / questions.length) * 100;
 
         let remark = "";
@@ -1625,7 +468,7 @@
         const doc = new jsPDF({
           orientation: "l",
           unit: "mm",
-          format: [220,170]
+          format: [220, 170]
         });
 
         const logoImg = document.getElementById("schoolLogo");
@@ -1731,9 +574,9 @@
         });
 
         // COPYRIGHT
-            doc.setFontSize(11);
-            doc.setTextColor(0, 0, 0);
-            doc.text("© 2026 Horlanif Tech. All Rights Reserved.", 105, 150, { align: "center" });
+        doc.setFontSize(11);
+        doc.setTextColor(0, 0, 0);
+        doc.text("© 2026 Horlanif Tech. All Rights Reserved.", 105, 150, { align: "center" });
 
 
         // Save PDF

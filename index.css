@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 * {
     box-sizing: border-box;
     font-family: "Poppins";
+    user-select: none;
 }
 
 body {
@@ -23,7 +23,7 @@ nav {
 }
 
 nav img {
-    height: 80px;
+    height: 60px;
 }
 
 nav ul {
@@ -101,14 +101,32 @@ nav a {
 
 .caption-01 {
     position: absolute;
-    top: 30%;
+    top: 20%;
     left: 25%;
     color: #fff;
-    font-size: 60px;
-    /* background: rgba(0,0,0,0.5); */
+    font-weight: 600;
+    font-size: 80px;
+    background:rgba(176, 48, 95, 0.4);
     padding: 10px;
     border-radius: 5px;
     text-align: center;
+    font-family: "Great Vibes";
+}
+
+.caption-01 a{
+    text-decoration: none;
+    font-size: 30px;
+    background-color: #fff;
+    color: #800020;
+    padding: 3px 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition:  0.2s ease-in-out;
+}
+
+.caption-01 a:hover{
+    background-color: #800020;
+    color: #fff;
 }
 
 /* Dots */
@@ -140,7 +158,7 @@ nav a {
     border: none;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
     text-decoration: none;
-    color: black;
+    color: #800020;
 }
 
 .sidebar {
@@ -176,18 +194,18 @@ nav a {
 }
 
 .sidebar ul li {
-
     list-style: none;
     margin-top: 10px;
-    font-size: 20px;
-    border-top: 1px solid #999;
+    font-size: 25px;
+    color: #fff;
+    border-bottom: 2px solid #fff;
 
 }
 
 .program {
     width: 100%;
-    margin-left: 50px;
-    margin-right: 50px;
+    /* margin-left: 50px;
+    margin-right: 50px; */
 }
 
 .program h1,
@@ -251,9 +269,9 @@ nav a {
     margin-bottom: 20px;
     display: flex;
     width: 100%;
-    justify-content: center;
-
+    justify-content: space-evenly;
 }
+
 
 .news {
     margin-right: 150px;
@@ -264,6 +282,7 @@ nav a {
     border-radius: 10px;
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
     margin-top: 10px;
+    padding: 10px 10px;
 
 }
 
@@ -273,11 +292,6 @@ nav a {
     padding-left: 20px;
     font-weight: 500;
     color: #fff;
-}
-
-.event {
-    padding: 0 10px;
-    /* width: 60%; */
 }
 
 /* Align items properly */
@@ -322,6 +336,13 @@ nav a {
 .profile {
     display: flex;
     align-items: center;
+    border: 3px solid #b03060;
+    border-radius: 10px;
+    position: relative;
+    max-width: 400px;
+    gap: 30px;
+    z-index: 50;
+
 }
 
 .profile img {
@@ -330,10 +351,20 @@ nav a {
     border: 2px solid #b03060;
     border-radius: 50%;
     padding: 5px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    /* KEY LINE */
+    z-index: 100;
+    background: #fff;
 }
+
+
 
 .profile table {
     border-collapse: collapse;
+    margin-left: 20px;
 }
 
 .profile table td {
@@ -342,8 +373,42 @@ nav a {
     /* keeps table text centered */
 }
 
+footer {
+    margin-top: 20px;
+    background: linear-gradient(to right, #b03060, #800020, #b03060);
+    border-radius: 10px;
+    justify-content: center;
 
+}
 
+.emblem {
+    display: flex;
+    justify-content: space-around;
+    color: #fff;
+
+}
+
+.emblem img {
+    height: 80px;
+    padding: 5px 10px;
+    border-bottom: 1px solid #999;
+}
+
+.emblem span {
+    margin-right: 10px;
+}
+
+.emblem h2{
+    color: #fff;
+}
+
+.copy p{
+    color: #fff;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 200;
+    padding: 20px 10px ;
+}
 
 @media screen and (max-width: 768px) {
 
@@ -356,8 +421,15 @@ nav a {
         display: block !important;
         font-size: 24px;
         cursor: pointer;
-        margin-right: 35px;
+        margin-right: 55px;
 
+    }
+
+    .caption-01 {
+        position: absolute;
+        font-size: 40px;
+        left: 20%;
+        top: 40%;
     }
 
     .feat {
@@ -387,14 +459,25 @@ nav a {
         margin-bottom: 20px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
+        margin-left: 50px;
 
     }
 
     .sect {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .emblem {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .emblem p {
+        padding-left: 25px;
+        padding-right: 20px;
     }
 
 }
