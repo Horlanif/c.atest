@@ -41,6 +41,10 @@ nav #menu-btn {
 
 }
 
+nav a{
+    text-decoration: none;
+}
+
 nav ul li {
     list-style: none;
     font-size: 20px;
@@ -168,7 +172,7 @@ nav a {
     position: fixed;
     background-color: #b03060;
     top: 5%;
-    height: 70%;
+    height: 80%;
     width: 300px;
     right: 0;
     transform: translateX(100%);
@@ -186,9 +190,12 @@ nav a {
 }
 
 .sidebar.active {
-    transform: translateX(-40%);
+    transform: translateX(-30%);
 }
-
+/* 
+.sidebar .login{
+    margin-bottom: 10px;
+} */
 #menu-btn,
 #close-btn {
     cursor: pointer;
@@ -196,6 +203,10 @@ nav a {
     color: #fff;
 }
 
+
+.sidebar a{
+    text-decoration: none;
+}
 .sidebar ul li {
     list-style: none;
     margin-top: 10px;
@@ -500,6 +511,10 @@ footer {
         padding: 0 10px;
         justify-content: center;
         width: 100%;
+    }
+
+    .profile{
+        width: 80%;
     }
 
     footer {

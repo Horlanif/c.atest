@@ -16,11 +16,24 @@
     <nav>
         <a href="index.html"><img src="QOSIMIYYAH LOGO-01.png"></a>
         <ul>
-            <li class="active">Home</li>
-            <li>About</li>
-            <li>Academics</li>
-            <li>Admissions</li>
-            <li>Portal</li>
+            <a href="index.html">
+                <li class="active">Home</li>
+            </a>
+            <a href="">
+                <li>About</li>
+            </a>
+            <a href="">
+                <li>Academics</li>
+            </a>
+            <a href="">
+                <li>Admissions</li>
+            </a>
+            <a href="">
+                <li>Portal</li>
+            </a>
+            <a href="file.html">
+                <li>E-library</li>
+            </a>
         </ul>
         <a href="exam.html" class="login">Login</a>
         <i class="fa-solid fa-bars" id="menu-btn"></i>
@@ -54,11 +67,24 @@
     <div class="sidebar">
         <i class="fa-solid fa-arrow-right-from-bracket" id="close-btn"></i>
         <ul>
-            <li class="active">Home</li>
-            <li>About</li>
-            <li>Academics</li>
-            <li>Admissions</li>
-            <li>Portal</li>
+            <a href="index.html">
+                <li class="active">Home</li>
+            </a>
+            <a href="">
+                <li>About</li>
+            </a>
+            <a href="">
+                <li>Academics</li>
+            </a>
+            <a href="">
+                <li>Admissions</li>
+            </a>
+            <a href="">
+                <li>Portal</li>
+            </a>
+            <a href="file.html">
+                <li>E-library</li>
+            </a>
         </ul>
         <a href="exam.html" class="login">Login</a>
 
@@ -249,7 +275,7 @@
         </div>
         <hr>
         <div class="copy">
-            <p>© Copyright 2026. All Rights Reserved by All Rights Reserved by AMOS. <br>Designed
+            <p>© Copyright 2026.All Rights Reserved by AMOS. <br>Designed
                 by Horlanif Tech-08139487564</p>
         </div>
     </footer>
@@ -305,7 +331,7 @@
                 post: "Health Prefect Boy",
                 img: "logo.png"
             },
-             {
+            {
                 name: "Ibrahim Sofiyyah",
                 class: "JSS3",
                 post: "Social Prefect",
@@ -335,7 +361,7 @@
                 post: "Chapel Prefect Boy",
                 img: "logo.png"
             },
-             {
+            {
                 name: "Abdulganiy Azeezat",
                 class: "SS1",
                 post: "Chapel Prefect Girl",
@@ -362,7 +388,7 @@
             const day = getDayNumber();
 
             const shuffled = [...prefects].sort((a, b) => {
-                return (a.name.length + day) - (b.name.length + day);
+                return Math.sin(day + a.name.length) - Math.sin(day + b.name.length);
             });
 
             return shuffled.slice(0, 2);
