@@ -388,7 +388,9 @@
             const day = getDayNumber();
 
             const shuffled = [...prefects].sort((a, b) => {
-                return Math.sin(day + a.name.length) - Math.sin(day + b.name.length);
+                const hashA = (a.name + day).split('').reduce((acc, c) => acc + c.charCodeAt(0), 0);
+                const hashB = (b.name + day).split('').reduce((acc, c) => acc + c.charCodeAt(0), 0);
+                return hashA - hashB;
             });
 
             return shuffled.slice(0, 2);
